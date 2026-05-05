@@ -54,5 +54,5 @@ Tools/ffmpeg-7.1.1-full_build/bin/ffmpeg.exe
 Tools/ffmpeg-7.1.1-full_build/bin/ffprobe.exe
 Tools/ffmpeg-7.1.1-full_build/bin/ffplay.exe
 
-.claude/.claude/
+.claude/
 claude.md
