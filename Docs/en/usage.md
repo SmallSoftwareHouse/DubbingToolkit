@@ -128,3 +128,28 @@ You can open a project folder directly in Explorer to manually inspect generated
 - Each stage generates metadata (`.json` files or `_info.txt`): useful for tracking progress or diagnosing issues.
 - If the process is interrupted, you can resume from the next stage after the one already completed, using the files in the intermediate output folders.
 - Processed files at each stage are automatically archived in that stage's `archive/` folder to preserve history.
+
+---
+
+## Error reporting
+
+If you encounter problems, you can send an error report to the developer directly from the application.
+
+### Manual report
+
+From the main menu, press **R** at any time to start the reporting process.
+
+### Automatic prompt on exit
+
+If errors occurred during the session, the application will ask on exit:
+
+> *"This session contains errors. Send a report to the developer? (y/n):"*
+
+### How it works
+
+1. A ZIP file is created in `Logs/` containing recent session logs
+2. The `Logs/` folder opens in Explorer with the file highlighted
+3. Your default email client opens with subject and body pre-filled
+4. Attach the ZIP file to the email before sending
+
+The report includes system information (OS, app version, CPU, RAM) and error details with tracebacks. No personal data or project files are included.

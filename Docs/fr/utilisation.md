@@ -221,3 +221,28 @@ La langue de l'interface se sélectionne au démarrage et peut être modifiée �
 - Les fichiers dans `Video_Input/` ne sont jamais modifiés par le système.
 - Chaque étape génère un fichier `_info.txt` avec les métadonnées : utile pour suivre l'état d'avancement ou diagnostiquer des problèmes.
 - En cas d'interruption du processus, il est possible de reprendre depuis l'étape suivant celle déjà complétée, en utilisant les fichiers dans les dossiers de sortie intermédiaires.
+
+---
+
+## Signalement d'erreurs
+
+En cas de problème, vous pouvez envoyer un rapport d'erreurs au développeur directement depuis l'application.
+
+### Rapport manuel
+
+Depuis le menu principal, appuyez sur **R** à tout moment pour lancer la procédure de signalement.
+
+### Invite automatique à la fermeture
+
+Si des erreurs se sont produites pendant la session, l'application demandera à la fermeture :
+
+> *« Cette session contient des erreurs. Envoyer un rapport au développeur ? (o/n) : »*
+
+### Fonctionnement
+
+1. Un fichier ZIP est créé dans `Logs/` contenant les journaux des sessions récentes
+2. Le dossier `Logs/` s'ouvre dans l'Explorateur avec le fichier mis en évidence
+3. Le client de messagerie par défaut s'ouvre avec l'objet et le corps pré-remplis
+4. Joindre le fichier ZIP à l'e-mail avant de l'envoyer
+
+Le rapport contient des informations système (OS, version de l'app, CPU, RAM) et les détails des erreurs avec les traces. Aucune donnée personnelle ni fichier de projet n'est inclus.

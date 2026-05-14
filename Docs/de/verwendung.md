@@ -128,3 +128,28 @@ Sie können den Ordner eines Projekts direkt im Explorer öffnen, um die generie
 - Jede Phase generiert Metadaten (`.json`-Dateien oder `_info.txt`): nützlich zum Verfolgen des Fortschritts oder zur Diagnose von Problemen.
 - Wenn der Prozess unterbrochen wird, können Sie ab der nächsten Phase nach der bereits abgeschlossenen fortfahren, indem Sie die Dateien in den Zwischen-Ausgabeverzeichnissen verwenden.
 - Verarbeitete Dateien in jeder Phase werden automatisch im `archive/`-Ordner dieser Phase archiviert, um den Verlauf zu erhalten.
+
+---
+
+## Fehlermeldung
+
+Bei Problemen können Sie direkt aus der Anwendung heraus einen Fehlerbericht an den Entwickler senden.
+
+### Manueller Bericht
+
+Drücken Sie im Hauptmenü jederzeit **R**, um den Meldeprozess zu starten.
+
+### Automatische Abfrage beim Beenden
+
+Wenn während der Sitzung Fehler aufgetreten sind, fragt die Anwendung beim Beenden:
+
+> *„Diese Sitzung enthält Fehler. Bericht an den Entwickler senden? (j/n):"*
+
+### Funktionsweise
+
+1. Eine ZIP-Datei wird in `Logs/` erstellt, die die Protokolle der letzten Sitzungen enthält
+2. Der Ordner `Logs/` öffnet sich im Explorer mit der markierten Datei
+3. Der Standard-E-Mail-Client öffnet sich mit vorausgefülltem Betreff und Text
+4. Hängen Sie die ZIP-Datei an die E-Mail an, bevor Sie sie senden
+
+Der Bericht enthält Systeminformationen (OS, App-Version, CPU, RAM) und Fehlerdetails mit Tracebacks. Es werden keine persönlichen Daten oder Projektdateien aufgenommen.

@@ -128,3 +128,28 @@ Você pode abrir a pasta de um projeto diretamente no Explorer para inspecionar 
 - Cada etapa gera metadados (arquivos `.json` ou `_info.txt`): úteis para acompanhar o progresso ou diagnosticar problemas.
 - Se o processo for interrompido, você pode retomá-lo a partir da próxima etapa após a já concluída, usando os arquivos nas pastas de saída intermediárias.
 - Os arquivos processados em cada etapa são arquivados automaticamente na pasta `archive/` dessa etapa para preservar o histórico.
+
+---
+
+## Relatório de erros
+
+Em caso de problemas, é possível enviar um relatório de erros ao desenvolvedor diretamente da aplicação.
+
+### Relatório manual
+
+No menu principal, pressione **R** a qualquer momento para iniciar o processo de notificação.
+
+### Aviso automático ao sair
+
+Se ocorreram erros durante a sessão, a aplicação perguntará ao sair:
+
+> *"Esta sessão contém erros. Enviar um relatório ao desenvolvedor? (s/n):"*
+
+### Como funciona
+
+1. Um arquivo ZIP é criado em `Logs/` contendo os registros das sessões recentes
+2. A pasta `Logs/` abre no Explorer com o arquivo destacado
+3. O cliente de e-mail padrão abre com assunto e corpo pré-preenchidos
+4. Anexe o arquivo ZIP ao e-mail antes de enviá-lo
+
+O relatório inclui informações do sistema (SO, versão do app, CPU, RAM) e detalhes de erros com tracebacks. Nenhum dado pessoal ou arquivo de projeto é incluído.

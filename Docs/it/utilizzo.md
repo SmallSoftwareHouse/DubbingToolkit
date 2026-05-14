@@ -128,3 +128,28 @@ Un progetto può essere eliminato. Se abilitata l'impostazione `use_trash`, il p
 - Ogni fase genera metadati (file `.json` o `_info.txt`): utili per tracciare lo stato di avanzamento o diagnosticare problemi.
 - In caso di interruzione del processo, è possibile ripartire dalla fase successiva a quella già completata, usando i file nelle cartelle di output intermedio.
 - I file estratti e processati in ogni fase vengono automaticamente archiviati nella cartella `archive/` di quella fase per preservare la cronologia.
+
+---
+
+## Segnalazione errori
+
+In caso di problemi, è possibile inviare una segnalazione allo sviluppatore direttamente dall'applicazione.
+
+### Invio manuale
+
+Dal menu principale, selezionare **R** per avviare la procedura di segnalazione in qualsiasi momento.
+
+### Invio automatico al termine della sessione
+
+Se durante la sessione si sono verificati errori, all'uscita viene proposta automaticamente la domanda:
+
+> *"Questa sessione contiene errori. Inviare una segnalazione allo sviluppatore? (s/n):"*
+
+### Come funziona
+
+1. Viene creato un file ZIP in `Logs/` contenente i log delle sessioni recenti
+2. La cartella `Logs/` si apre in Explorer con il file evidenziato
+3. Il client email predefinito si apre con oggetto e corpo pre-compilati
+4. Allegare il file ZIP all'email prima di inviarla
+
+Il report include informazioni di sistema (OS, versione app, CPU, RAM) e il dettaglio degli errori con traceback. Non vengono inclusi dati personali o file di progetto.

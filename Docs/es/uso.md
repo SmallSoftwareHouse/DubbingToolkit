@@ -128,3 +128,28 @@ Puedes abrir la carpeta de un proyecto directamente en Explorer para inspecciona
 - Cada fase genera metadatos (archivos `.json` o `_info.txt`): útiles para hacer seguimiento del progreso o diagnosticar problemas.
 - Si se interrumpe el proceso, puedes reanudar desde la siguiente fase usando los archivos en las carpetas de salida intermedia.
 - Los archivos procesados en cada fase se archivan automáticamente en la carpeta `archive/` de esa fase para preservar el historial.
+
+---
+
+## Notificación de errores
+
+Si encuentra problemas, puede enviar un informe de errores al desarrollador directamente desde la aplicación.
+
+### Informe manual
+
+Desde el menú principal, pulse **R** en cualquier momento para iniciar el proceso de notificación.
+
+### Aviso automático al salir
+
+Si se produjeron errores durante la sesión, la aplicación preguntará al salir:
+
+> *"Esta sesión contiene errores. ¿Enviar un informe al desarrollador? (s/n):"*
+
+### Cómo funciona
+
+1. Se crea un archivo ZIP en `Logs/` con los registros de sesiones recientes
+2. La carpeta `Logs/` se abre en el Explorador con el archivo resaltado
+3. El cliente de correo predeterminado se abre con asunto y cuerpo pre-rellenados
+4. Adjunte el archivo ZIP al correo antes de enviarlo
+
+El informe incluye información del sistema (SO, versión de la app, CPU, RAM) y detalles de errores con trazas. No se incluyen datos personales ni archivos de proyecto.
