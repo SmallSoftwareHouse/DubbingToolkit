@@ -555,7 +555,7 @@
   "ProgettiError": "Ошибка: {0}",
   "ProgettiInvalid": "Неверный выбор.",
   "ProgettiListLabel": "ДОСТУПНЫЕ ПРОЕКТЫ",
-  "ProgettiOptionsLabel": "ДОСТУПНЫЕ ОПЦИИ",
+  "ProgettiOptionsLabel": "ОПЕРАЦИИ УПРАВЛЕНИЯ ПРОЕКТАМИ",
   "ProgettiSelectLabel": "ВЫБЕРИТЕ ПРОЕКТ",
   "ProgettiDeleteLabel": "УДАЛИТЬ ПРОЕКТ",
   "ProgettiDuplicateLabel": "ДУБЛИРОВАТЬ ПРОЕКТ",

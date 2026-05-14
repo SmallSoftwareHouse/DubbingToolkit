@@ -555,7 +555,7 @@
   "ProgettiError": "Error: {0}",
   "ProgettiInvalid": "Invalid choice.",
   "ProgettiListLabel": "AVAILABLE PROJECTS",
-  "ProgettiOptionsLabel": "AVAILABLE OPTIONS",
+  "ProgettiOptionsLabel": "PROJECT MANAGEMENT OPERATIONS",
   "ProgettiSelectLabel": "SELECT PROJECT",
   "ProgettiDeleteLabel": "DELETE PROJECT",
   "ProgettiDuplicateLabel": "DUPLICATE PROJECT",

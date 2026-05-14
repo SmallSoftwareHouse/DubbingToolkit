@@ -555,7 +555,7 @@
   "ProgettiError": "Fehler: {0}",
   "ProgettiInvalid": "Ungueltige Auswahl.",
   "ProgettiListLabel": "VERFÜGBARE PROJEKTE",
-  "ProgettiOptionsLabel": "VERFÜGBARE OPTIONEN",
+  "ProgettiOptionsLabel": "PROJEKTVERWALTUNGSOPERATIONEN",
   "ProgettiSelectLabel": "PROJEKT AUSWÄHLEN",
   "ProgettiDeleteLabel": "PROJEKT LÖSCHEN",
   "ProgettiDuplicateLabel": "PROJEKT DUPLIZIEREN",

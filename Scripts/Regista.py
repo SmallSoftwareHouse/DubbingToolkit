@@ -59,6 +59,14 @@ def _init_project_info(ws, name, settings, messages):
 
 
 # =========================================================
+# Visual separator
+# =========================================================
+def print_separator(lines=5):
+    """Print blank lines to visually separate menu operations."""
+    print("\n" * lines)
+
+
+# =========================================================
 # Title display
 # =========================================================
 def mostra_titolo_menu(messages, titolo_key, ws=None, width=38):
@@ -398,7 +406,7 @@ def gestione_progetti(messages, ws, settings=None):
 
         print(Fore.CYAN + "-"*38 + Style.RESET_ALL)
         print()
-        options_label = getattr(messages, "ProgettiOptionsLabel", "OPZIONI DISPONIBILI")
+        options_label = getattr(messages, "ProgettiOptionsLabel", "OPERAZIONI GESTIONE PROGETTI")
         print(Fore.CYAN + options_label + Style.RESET_ALL)
         print(Fore.CYAN + "-"*38 + Style.RESET_ALL)
         print(getattr(messages, "ProgettiOpt1", "1. New project"))
@@ -678,16 +686,21 @@ def main(messages):
 
         if scelta == '0':
             ws = gestione_progetti(messages, ws, settings)
+            print_separator(5)
         elif scelta == '1':
             estrai_tracce(messages, settings)
+            print_separator(5)
         elif scelta == '2':
             trascrivi_audio(messages, settings)
+            print_separator(5)
         elif scelta == '3':
             traduci_testo(messages, settings)
+            print_separator(5)
         elif scelta == '4':
             if tts_enabled:
                 from tts_menu import tts_menu
                 tts_menu(messages, settings)
+                print_separator(5)
             else:
                 print(Fore.YELLOW + messages.RegistaMenuOption4Disabled + Style.RESET_ALL)
         elif scelta == '8':
@@ -696,6 +709,7 @@ def main(messages):
                 messages = new_messages
             with SETTINGS_FILE.open("r", encoding="utf-8-sig") as f:
                 settings = json.load(f)
+            print_separator(5)
         elif scelta is not None and scelta.lower() == 'x':
             print(messages.RegistaExit)
             logger.info("Regista", "main", "User exited application")
