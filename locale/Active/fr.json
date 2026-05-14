@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "DUPLIQUER LE PROJET",
   "ProgettiRenameLabel": "RENOMMER LE PROJET",
   "ProgettiOpenFolderLabel": "OUVRIR DOSSIER",
+  "RegistaMenuOptionR": "R. Envoyer un rapport d'erreurs",
+  "RegistaExitErrorsPrompt": "Cette session contient des erreurs. Envoyer un rapport au développeur ? (o/n) :",
   "ARCHIVE_PruneWillDelete": "Les dossiers d'archive suivants seront supprimés :",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "Procéder à la suppression ? (o/n) :",

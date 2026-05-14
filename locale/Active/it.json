@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "DUPLICA PROGETTO",
   "ProgettiRenameLabel": "RINOMINA PROGETTO",
   "ProgettiOpenFolderLabel": "APRI CARTELLA",
+  "RegistaMenuOptionR": "R. Invia segnalazione errori",
+  "RegistaExitErrorsPrompt": "Questa sessione contiene errori. Inviare una segnalazione allo sviluppatore? (s/n):",
   "ARCHIVE_PruneWillDelete": "Le seguenti cartelle archivio verranno eliminate:",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "Procedere con l'eliminazione? (s/n):",

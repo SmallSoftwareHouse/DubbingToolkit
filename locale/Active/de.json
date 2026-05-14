@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "PROJEKT DUPLIZIEREN",
   "ProgettiRenameLabel": "PROJEKT UMBENENNEN",
   "ProgettiOpenFolderLabel": "ORDNER ÖFFNEN",
+  "RegistaMenuOptionR": "R. Fehlerbericht senden",
+  "RegistaExitErrorsPrompt": "Diese Sitzung enthält Fehler. Bericht an den Entwickler senden? (j/n):",
   "ARCHIVE_PruneWillDelete": "Die folgenden Archivordner werden gelöscht:",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "Mit dem Löschen fortfahren? (j/n):",

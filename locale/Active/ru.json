@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "ДУБЛИРОВАТЬ ПРОЕКТ",
   "ProgettiRenameLabel": "ПЕРЕИМЕНОВАТЬ ПРОЕКТ",
   "ProgettiOpenFolderLabel": "ОТКРЫТЬ ПАПКУ",
+  "RegistaMenuOptionR": "R. Отправить отчёт об ошибке",
+  "RegistaExitErrorsPrompt": "В этом сеансе есть ошибки. Отправить отчёт разработчику? (д/н):",
   "ARCHIVE_PruneWillDelete": "Следующие папки архива будут удалены:",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "Продолжить удаление? (д/н):",

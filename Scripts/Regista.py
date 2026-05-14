@@ -25,6 +25,7 @@ from settings_manager import default_setting
 from core.logger import logger
 from core.update_checker import check_for_updates
 from core.input_parsing import is_yes
+from core.error_reporter import send_error_report, has_errors
 from info_manager import InfoManager
 
 
@@ -272,6 +273,7 @@ def menu(messages, tts_enabled):
 
     print("-"*28)
     print(messages.RegistaMenuOption8)
+    print(getattr(messages, "RegistaMenuOptionR", "R. Send error report"))
     print(getattr(messages, "RegistaMenuOptionQ", "X. Exit"))
 
     scelta = input(messages.RegistaMenuPrompt + " ").strip()
@@ -710,7 +712,17 @@ def main(messages):
             with SETTINGS_FILE.open("r", encoding="utf-8-sig") as f:
                 settings = json.load(f)
             print_separator(5)
+        elif scelta is not None and scelta.lower() == 'r':
+            send_error_report(logger, messages)
+            print_separator(5)
         elif scelta is not None and scelta.lower() == 'x':
+            # Check for errors before exit and prompt to report
+            if has_errors(logger):
+                prompt = getattr(messages, "RegistaExitErrorsPrompt",
+                                 "Questa sessione contiene errori. Inviare una segnalazione? (s/n):")
+                answer = input(Fore.YELLOW + prompt + " " + Style.RESET_ALL).strip()
+                if is_yes(answer, messages):
+                    send_error_report(logger, messages)
             print(messages.RegistaExit)
             logger.info("Regista", "main", "User exited application")
             break

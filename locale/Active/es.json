@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "DUPLICAR PROYECTO",
   "ProgettiRenameLabel": "RENOMBRAR PROYECTO",
   "ProgettiOpenFolderLabel": "ABRIR CARPETA",
+  "RegistaMenuOptionR": "R. Enviar informe de errores",
+  "RegistaExitErrorsPrompt": "Esta sesión contiene errores. ¿Enviar un informe al desarrollador? (s/n):",
   "ARCHIVE_PruneWillDelete": "Las siguientes carpetas de archivo serán eliminadas:",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "¿Proceder con la eliminación? (s/n):",

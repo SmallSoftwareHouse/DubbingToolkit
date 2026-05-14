@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "DUPLICATE PROJECT",
   "ProgettiRenameLabel": "RENAME PROJECT",
   "ProgettiOpenFolderLabel": "OPEN FOLDER",
+  "RegistaMenuOptionR": "R. Send error report",
+  "RegistaExitErrorsPrompt": "This session contains errors. Send a report to the developer? (y/n):",
   "ARCHIVE_PruneWillDelete": "The following archive folders will be deleted:",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "Proceed with deletion? (y/n):",

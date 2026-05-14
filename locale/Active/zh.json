@@ -560,6 +560,8 @@
   "ProgettiDuplicateLabel": "复制项目",
   "ProgettiRenameLabel": "重命名项目",
   "ProgettiOpenFolderLabel": "打开文件夹",
+  "RegistaMenuOptionR": "R. 发送错误报告",
+  "RegistaExitErrorsPrompt": "本次会话存在错误。是否向开发者发送报告？(是/否):",
   "ARCHIVE_PruneWillDelete": "以下归档文件夹将被删除：",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "确认删除？(y/n)：",

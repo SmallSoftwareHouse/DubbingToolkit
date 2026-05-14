@@ -561,6 +561,8 @@
   "ProgettiDuplicateLabel": "DUPLICAR PROJETO",
   "ProgettiRenameLabel": "RENOMEAR PROJETO",
   "ProgettiOpenFolderLabel": "ABRIR PASTA",
+  "RegistaMenuOptionR": "R. Enviar relatório de erros",
+  "RegistaExitErrorsPrompt": "Esta sessão contém erros. Enviar um relatório ao desenvolvedor? (s/n):",
   "ARCHIVE_PruneWillDelete": "As seguintes pastas de arquivo serão excluídas:",
   "ARCHIVE_PruneFolder": "  - {0}",
   "ARCHIVE_PruneConfirm": "Prosseguir com a exclusão? (s/n):",
