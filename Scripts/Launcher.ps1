@@ -342,9 +342,12 @@ if (Test-Path $LockFile) {
         exit 1
     }
     # Read exit_reason before removing the lock
-    $staleLockData = $null
-    try { $staleLockData = Get-Content $LockFile -Encoding UTF8 -Raw | ConvertFrom-Json } catch {}
-    $wasCleanExit = ($staleLockData -and $staleLockData.clean_exit -eq $true)
+    $wasCleanExit = $false
+    try {
+        $staleLockData = Get-Content $LockFile -Encoding UTF8 -Raw | ConvertFrom-Json
+        $cleanProp = $staleLockData.PSObject.Properties['clean_exit']
+        if ($cleanProp -and $cleanProp.Value -eq $true) { $wasCleanExit = $true }
+    } catch {}
 
     Remove-Item $LockFile -Force -ErrorAction SilentlyContinue
 
