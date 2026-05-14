@@ -87,6 +87,46 @@ def _format_event_text(event: dict) -> str:
     return "\n".join(lines)
 
 
+def _compute_stats(sess: dict) -> dict:
+    """
+    Compute session statistics directly from events (works for open sessions
+    that haven't been closed yet, where summary is still None).
+    Falls back to the stored summary if present.
+    """
+    summ   = sess.get("summary") or {}
+    events = sess.get("events", [])
+
+    errors   = [e for e in events if e.get("level") == "ERROR"]
+    warnings = [e for e in events if e.get("level") == "WARNING"]
+    ops_done = [e for e in events
+                if e.get("event_type") == "operation" and e.get("status") == "SUCCESS"]
+
+    # Duration: prefer stored value; otherwise compute from timestamps
+    duration_str = "?"
+    stored_dur = summ.get("total_duration_min")
+    if stored_dur is not None:
+        duration_str = f"{stored_dur}"
+    else:
+        start_str = sess.get("session_start")
+        end_str   = sess.get("session_end")
+        if start_str:
+            try:
+                start_dt = datetime.fromisoformat(start_str)
+                end_dt   = (datetime.fromisoformat(end_str) if end_str
+                            else datetime.now(timezone.utc))
+                dur_min = round((end_dt - start_dt).total_seconds() / 60, 1)
+                duration_str = f"{dur_min} (sessione {'aperta' if not end_str else 'chiusa'})"
+            except Exception:
+                pass
+
+    return {
+        "errors":   summ.get("errors",                len(errors)),
+        "warnings": summ.get("warnings",              len(warnings)),
+        "ops_done": summ.get("operations_completed",  len(ops_done)),
+        "duration": duration_str,
+    }
+
+
 def _build_report_text(sessions: list[dict]) -> str:
     """
     Build a human-readable plain-text report from one or more sessions.
@@ -103,26 +143,28 @@ def _build_report_text(sessions: list[dict]) -> str:
     ]
 
     for idx, sess in enumerate(sessions):
-        label = "CURRENT SESSION" if idx == 0 else f"PREVIOUS SESSION {idx}"
-        si    = sess.get("system_info", {})
-        summ  = sess.get("summary", {})
+        label  = "CURRENT SESSION" if idx == 0 else f"PREVIOUS SESSION {idx}"
+        si     = sess.get("system_info", {})
+        stats  = _compute_stats(sess)
         errors   = _collect_errors(sess)
         warnings = _collect_warnings(sess)
+
+        end_val = sess.get("session_end") or "(sessione ancora aperta)"
 
         lines += [
             f"── {label} ───────────────────────────────────────",
             f"  Session ID : {sess.get('session_id', '?')}",
             f"  Start      : {sess.get('session_start', '?')}",
-            f"  End        : {sess.get('session_end') or '(still open / not closed cleanly)'}",
+            f"  End        : {end_val}",
             f"  App ver.   : {si.get('app_version', '?')}",
             f"  Python     : {si.get('python_version', '?')}",
             f"  OS         : {si.get('os', '?')} {si.get('os_version', '')}",
             f"  CPU        : {si.get('cpu', '?')}",
             f"  RAM        : {si.get('ram_gb', '?')} GB",
-            f"  Errors     : {summ.get('errors', len(errors))}",
-            f"  Warnings   : {summ.get('warnings', len(warnings))}",
-            f"  Ops done   : {summ.get('operations_completed', '?')}",
-            f"  Duration   : {summ.get('total_duration_min', '?')} min",
+            f"  Errors     : {stats['errors']}",
+            f"  Warnings   : {stats['warnings']}",
+            f"  Ops done   : {stats['ops_done']}",
+            f"  Duration   : {stats['duration']} min",
             "",
         ]
 
@@ -352,18 +394,33 @@ def send_error_report(
         # ── 7. Terminal instructions ──────────────────────
         print()
         print(C + "=" * 54 + R)
-        print(C + "  SEGNALAZIONE ERRORI" + R)
+        print(C + "  SEGNALAZIONE ERRORI — REPORT CREATO" + R)
         print(C + "=" * 54 + R)
-        print(G + f"  ✓ Report ZIP creato:" + R)
+        print()
+        print(G + "  ✓ File ZIP pronto:" + R)
         print(f"    {zip_path.name}")
+        print(f"    (posizione: Logs\)")
         print()
-        print(Y + "  PROSSIMI PASSI:" + R)
-        print("  1. Explorer si apre con il file ZIP evidenziato")
-        print("  2. Il tuo client email si apre con il report pre-compilato")
-        print(Y + "  3. Allega il file ZIP all'email prima di inviarla" + R)
-        print(f"  4. Invia a: {DEVELOPER_EMAIL}")
+        print(C + "  ─── COSA FARE ORA ───────────────────────────" + R)
+        print()
+        print(Y + "  1." + R + " Explorer si è aperto con il file ZIP evidenziato.")
+        print(Y + "  2." + R + " Il tuo client email si è aperto (o ti ha chiesto")
+        print("     con quale app aprirlo — scegli la tua email).")
+        print()
+        print(Y + "  3. IMPORTANTE:" + R + " prima di inviare l'email,")
+        print(Y + "     ALLEGA il file ZIP" + R + " che vedi in Explorer.")
+        print()
+        print(f"  Destinatario: {C}{DEVELOPER_EMAIL}{R}")
+        print()
+        print(C + "  Il report contiene:" + R)
+        print(f"    • Log della sessione corrente")
+        print(f"    • Log delle {MAX_PAST_SESSIONS} sessioni precedenti")
+        print(f"    • Informazioni di sistema (OS, CPU, RAM, versione app)")
+        print(f"    • Dettaglio errori e traceback")
+        print()
         print(C + "=" * 54 + R)
         print()
+        input("  Premi Invio per tornare al menu... ")
 
         return True
 
