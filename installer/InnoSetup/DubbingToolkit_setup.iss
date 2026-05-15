@@ -57,55 +57,97 @@ russian.ReadyToUpdate=Обнаружена предыдущая версия. П
 ; --- [02.03] DIALOG DISINSTALLAZIONE CHECKBOX ---
 english.UninstallDataTitle=Data removal options
 english.UninstallDataMsg=Select what you want to permanently delete:
+english.UninstallSelectAll=Select all
+english.UninstallDeselectAll=Deselect all
 english.UninstallCredentials=Credentials and API keys (credentials folder)
-english.UninstallBilling=Billing data - monthly TTS usage log (Billing folder)
+english.UninstallBilling=Billing data - monthly TTS usage (Billing folder)
+english.UninstallLogs=Session logs (Logs folder)
 italian.UninstallDataTitle=Opzioni di rimozione dati
 italian.UninstallDataMsg=Seleziona cosa vuoi eliminare definitivamente:
+italian.UninstallSelectAll=Seleziona tutto
+italian.UninstallDeselectAll=Deseleziona tutto
 italian.UninstallCredentials=Credenziali e chiavi API (cartella credentials)
-italian.UninstallBilling=Dati di fatturazione - log consumo TTS mensile (cartella Billing)
+italian.UninstallBilling=Dati di fatturazione - consumo TTS mensile (cartella Billing)
+italian.UninstallLogs=Log di sessione (cartella Logs)
 french.UninstallDataTitle=Options de suppression des données
 french.UninstallDataMsg=Sélectionnez ce que vous souhaitez supprimer définitivement :
+french.UninstallSelectAll=Tout sélectionner
+french.UninstallDeselectAll=Tout désélectionner
 french.UninstallCredentials=Identifiants et clés API (dossier credentials)
-french.UninstallBilling=Données de facturation - journal d'utilisation TTS mensuel (dossier Billing)
+french.UninstallBilling=Données de facturation - utilisation TTS mensuelle (dossier Billing)
+french.UninstallLogs=Journaux de session (dossier Logs)
 german.UninstallDataTitle=Optionen zur Datenlöschung
 german.UninstallDataMsg=Wählen Sie aus, was Sie dauerhaft löschen möchten:
+german.UninstallSelectAll=Alles auswählen
+german.UninstallDeselectAll=Alles abwählen
 german.UninstallCredentials=Anmeldedaten und API-Schlüssel (Ordner credentials)
-german.UninstallBilling=Abrechnungsdaten - monatliches TTS-Nutzungsprotokoll (Ordner Billing)
+german.UninstallBilling=Abrechnungsdaten - monatliche TTS-Nutzung (Ordner Billing)
+german.UninstallLogs=Sitzungsprotokolle (Ordner Logs)
 spanish.UninstallDataTitle=Opciones de eliminación de datos
 spanish.UninstallDataMsg=Seleccione qué desea eliminar de forma permanente:
+spanish.UninstallSelectAll=Seleccionar todo
+spanish.UninstallDeselectAll=Deseleccionar todo
 spanish.UninstallCredentials=Credenciales y claves API (carpeta credentials)
-spanish.UninstallBilling=Datos de facturación - registro de uso TTS mensual (carpeta Billing)
+spanish.UninstallBilling=Datos de facturación - uso TTS mensual (carpeta Billing)
+spanish.UninstallLogs=Registros de sesión (carpeta Logs)
 portuguese.UninstallDataTitle=Opções de remoção de dados
 portuguese.UninstallDataMsg=Selecione o que deseja excluir permanentemente:
+portuguese.UninstallSelectAll=Selecionar tudo
+portuguese.UninstallDeselectAll=Desmarcar tudo
 portuguese.UninstallCredentials=Credenciais e chaves de API (pasta credentials)
-portuguese.UninstallBilling=Dados de faturamento - log de uso TTS mensal (pasta Billing)
+portuguese.UninstallBilling=Dados de faturamento - uso TTS mensal (pasta Billing)
+portuguese.UninstallLogs=Registros de sessão (pasta Logs)
 russian.UninstallDataTitle=Параметры удаления данных
 russian.UninstallDataMsg=Выберите, что вы хотите удалить навсегда:
+russian.UninstallSelectAll=Выбрать всё
+russian.UninstallDeselectAll=Снять всё
 russian.UninstallCredentials=Учётные данные и ключи API (папка credentials)
-russian.UninstallBilling=Данные о выставлении счетов - журнал использования TTS (папка Billing)
+russian.UninstallBilling=Данные о выставлении счетов - использование TTS (папка Billing)
+russian.UninstallLogs=Журналы сеансов (папка Logs)
 
 ; --- [02.05] AVVISO, LAVORO E CONFERMA DISINSTALLAZIONE ---
 english.UninstallWarning=WARNING: selected items will be permanently deleted.
 english.UninstallWorkFiles=Work files - projects and user data (Workspace folder)
-english.UninstallConfirmMsg=Are you sure you want to permanently delete the selected items?
+english.UninstallConfirmTitle=WARNING — Permanent deletion
+english.UninstallConfirmText=This action cannot be undone.%nThe selected data will be permanently deleted and cannot be recovered.%n%nAre you sure you want to proceed?
+english.UninstallConfirmYes=Yes, delete
+english.UninstallConfirmCancel=Cancel
 italian.UninstallWarning=ATTENZIONE: i dati selezionati verranno eliminati definitivamente.
 italian.UninstallWorkFiles=File di lavoro - progetti e dati utente (cartella Workspace)
-italian.UninstallConfirmMsg=Sei sicuro di voler eliminare definitivamente gli elementi selezionati?
+italian.UninstallConfirmTitle=ATTENZIONE — Eliminazione definitiva
+italian.UninstallConfirmText=Questa operazione è irreversibile.%nI dati selezionati verranno eliminati definitivamente e non potranno essere recuperati.%n%nSei sicuro di voler procedere?
+italian.UninstallConfirmYes=Sì, elimina
+italian.UninstallConfirmCancel=Annulla
 french.UninstallWarning=ATTENTION : les éléments sélectionnés seront supprimés définitivement.
 french.UninstallWorkFiles=Fichiers de travail - projets et données utilisateur (dossier Workspace)
-french.UninstallConfirmMsg=Êtes-vous sûr de vouloir supprimer définitivement les éléments sélectionnés ?
+french.UninstallConfirmTitle=ATTENTION — Suppression définitive
+french.UninstallConfirmText=Cette action est irréversible.%nLes données sélectionnées seront supprimées définitivement et ne pourront pas être récupérées.%n%nÊtes-vous sûr de vouloir continuer ?
+french.UninstallConfirmYes=Oui, supprimer
+french.UninstallConfirmCancel=Annuler
 german.UninstallWarning=WARNUNG: Die ausgewählten Elemente werden dauerhaft gelöscht.
 german.UninstallWorkFiles=Arbeitsdateien - Projekte und Benutzerdaten (Ordner Workspace)
-german.UninstallConfirmMsg=Sind Sie sicher, dass Sie die ausgewählten Elemente dauerhaft löschen möchten?
+german.UninstallConfirmTitle=WARNUNG — Endgültige Löschung
+german.UninstallConfirmText=Diese Aktion kann nicht rückgängig gemacht werden.%nDie ausgewählten Daten werden endgültig gelöscht und können nicht wiederhergestellt werden.%n%nSind Sie sicher, dass Sie fortfahren möchten?
+german.UninstallConfirmYes=Ja, löschen
+german.UninstallConfirmCancel=Abbrechen
 spanish.UninstallWarning=ADVERTENCIA: los elementos seleccionados se eliminarán permanentemente.
 spanish.UninstallWorkFiles=Archivos de trabajo - proyectos y datos de usuario (carpeta Workspace)
-spanish.UninstallConfirmMsg=¿Está seguro de que desea eliminar permanentemente los elementos seleccionados?
+spanish.UninstallConfirmTitle=ADVERTENCIA — Eliminación permanente
+spanish.UninstallConfirmText=Esta acción es irreversible.%nLos datos seleccionados se eliminarán permanentemente y no podrán recuperarse.%n%n¿Está seguro de que desea continuar?
+spanish.UninstallConfirmYes=Sí, eliminar
+spanish.UninstallConfirmCancel=Cancelar
 portuguese.UninstallWarning=AVISO: os itens selecionados serão excluídos permanentemente.
 portuguese.UninstallWorkFiles=Arquivos de trabalho - projetos e dados do usuário (pasta Workspace)
-portuguese.UninstallConfirmMsg=Tem certeza de que deseja excluir permanentemente os itens selecionados?
+portuguese.UninstallConfirmTitle=AVISO — Exclusão permanente
+portuguese.UninstallConfirmText=Esta ação é irreversível.%nOs dados selecionados serão excluídos permanentemente e não poderão ser recuperados.%n%nTem certeza de que deseja continuar?
+portuguese.UninstallConfirmYes=Sim, excluir
+portuguese.UninstallConfirmCancel=Cancelar
 russian.UninstallWarning=ВНИМАНИЕ: выбранные элементы будут удалены безвозвратно.
 russian.UninstallWorkFiles=Рабочие файлы - проекты и данные пользователя (папка Workspace)
-russian.UninstallConfirmMsg=Вы уверены, что хотите безвозвратно удалить выбранные элементы?
+russian.UninstallConfirmTitle=ВНИМАНИЕ — Безвозвратное удаление
+russian.UninstallConfirmText=Это действие необратимо.%nВыбранные данные будут удалены безвозвратно и не смогут быть восстановлены.%n%nВы уверены, что хотите продолжить?
+russian.UninstallConfirmYes=Да, удалить
+russian.UninstallConfirmCancel=Отмена
 
 ; --- [02.04] MESSAGGIO FINALE DISINSTALLAZIONE ---
 english.UninstallRemainingMsg=If work files or credentials were preserved, the following folders may still be present in the installation folder:%n%n  - Workspace  (projects, audio, video, transcripts, etc.)%n  - Billing%n  - credentials%n  - Logs%n%nYou can find them in the installation folder and delete them manually if you no longer need them.
@@ -150,27 +192,122 @@ Filename: "{app}\StartDubbing.bat"; Description: "Avvia Dubbing Toolkit"; Flags:
 // [08.01] VARIABILI GLOBALI
 // ------------------------------------------------------------
 var
-  DeleteCredentials: Boolean;
-  DeleteBilling:     Boolean;
-  DeleteWorkFiles:   Boolean;
-  IsUpgrade:         Boolean;
+  DeleteCredentials:    Boolean;
+  DeleteBilling:        Boolean;
+  DeleteLogs:           Boolean;
+  DeleteWorkFiles:      Boolean;
+  IsUpgrade:            Boolean;
+  GChkCred:             TCheckBox;
+  GChkBilling:          TCheckBox;
+  GChkLogs:             TCheckBox;
+  GChkWork:             TCheckBox;
+  GConfirmDeleteResult: Boolean;
+
+// ------------------------------------------------------------
+// [08.02a] FORM CONFERMA ELIMINAZIONE
+// ------------------------------------------------------------
+procedure ConfirmDeleteYesClick(Sender: TObject);
+begin
+  GConfirmDeleteResult := True;
+end;
+
+function ShowConfirmDeleteForm: Boolean;
+var
+  Form:      TForm;
+  LblTitle:  TLabel;
+  LblBody:   TLabel;
+  BtnYes:    TButton;
+  BtnCancel: TButton;
+begin
+  Result := False;
+
+  Form := TForm.Create(nil);
+  Form.Caption      := CustomMessage('UninstallConfirmTitle');
+  Form.ClientWidth  := 480;
+  Form.ClientHeight := 210;
+  Form.Position     := poScreenCenter;
+  Form.BorderStyle  := bsDialog;
+
+  LblTitle := TLabel.Create(Form);
+  LblTitle.Parent     := Form;
+  LblTitle.AutoSize   := False;
+  LblTitle.Left       := 20;
+  LblTitle.Top        := 18;
+  LblTitle.Width      := 440;
+  LblTitle.Height     := 22;
+  LblTitle.Caption    := CustomMessage('UninstallConfirmTitle');
+  LblTitle.Font.Style := [fsBold];
+  LblTitle.Font.Color := clRed;
+  LblTitle.Font.Size  := 10;
+
+  LblBody := TLabel.Create(Form);
+  LblBody.Parent    := Form;
+  LblBody.AutoSize  := False;
+  LblBody.Left      := 20;
+  LblBody.Top       := 52;
+  LblBody.Width     := 440;
+  LblBody.Height    := 90;
+  LblBody.WordWrap  := True;
+  LblBody.Caption   := CustomMessage('UninstallConfirmText');
+
+  BtnCancel := TButton.Create(Form);
+  BtnCancel.Parent      := Form;
+  BtnCancel.Caption     := CustomMessage('UninstallConfirmCancel');
+  BtnCancel.Left        := 250;
+  BtnCancel.Top         := 168;
+  BtnCancel.Width       := 100;
+  BtnCancel.ModalResult := mrCancel;
+
+  BtnYes := TButton.Create(Form);
+  BtnYes.Parent      := Form;
+  BtnYes.Caption     := CustomMessage('UninstallConfirmYes');
+  BtnYes.Left        := 360;
+  BtnYes.Top         := 168;
+  BtnYes.Width       := 100;
+  BtnYes.ModalResult := mrOK;
+  BtnYes.OnClick     := @ConfirmDeleteYesClick;
+
+  GConfirmDeleteResult := False;
+  Form.ShowModal;
+  Result := GConfirmDeleteResult;
+  Form.Free;
+end;
+
+// ------------------------------------------------------------
+// [08.02b] HANDLER PULSANTI SELEZIONA/DESELEZIONA TUTTO
+// ------------------------------------------------------------
+procedure SelectAllClick(Sender: TObject);
+begin
+  GChkCred.Checked    := True;
+  GChkBilling.Checked := True;
+  GChkLogs.Checked    := True;
+  GChkWork.Checked    := True;
+end;
+
+procedure DeselectAllClick(Sender: TObject);
+begin
+  GChkCred.Checked    := False;
+  GChkBilling.Checked := False;
+  GChkLogs.Checked    := False;
+  GChkWork.Checked    := False;
+end;
 
 // ------------------------------------------------------------
 // [08.02] FORM CHECKBOX DISINSTALLAZIONE
 // ------------------------------------------------------------
 procedure ShowUninstallOptionsForm;
 var
-  Form:       TForm;
-  LblWarning: TLabel;
-  LblMsg:     TLabel;
-  ChkCred:    TCheckBox;
-  ChkBilling: TCheckBox;
-  ChkWork:    TCheckBox;
-  BtnOK:      TButton;
-  Confirmed:  Boolean;
+  Form:          TForm;
+  LblWarning:    TLabel;
+  LblMsg:        TLabel;
+  BtnSelectAll:  TButton;
+  BtnDeselectAll: TButton;
+  BtnOK:         TButton;
+  Confirmed:     Boolean;
 begin
   DeleteCredentials := False;
   DeleteBilling     := False;
+  DeleteLogs        := False;
   DeleteWorkFiles   := False;
 
   repeat
@@ -179,7 +316,7 @@ begin
     Form := TForm.Create(nil);
     Form.Caption      := CustomMessage('UninstallDataTitle');
     Form.ClientWidth  := 480;
-    Form.ClientHeight := 380;
+    Form.ClientHeight := 370;
     Form.Position     := poScreenCenter;
     Form.BorderStyle  := bsDialog;
 
@@ -187,9 +324,9 @@ begin
     LblWarning.Parent     := Form;
     LblWarning.AutoSize   := False;
     LblWarning.Left       := 20;
-    LblWarning.Top        := 20;
+    LblWarning.Top        := 15;
     LblWarning.Width      := 440;
-    LblWarning.Height     := 40;
+    LblWarning.Height     := 36;
     LblWarning.WordWrap   := True;
     LblWarning.Caption    := CustomMessage('UninstallWarning');
     LblWarning.Font.Style := [fsBold];
@@ -198,53 +335,80 @@ begin
     LblMsg := TLabel.Create(Form);
     LblMsg.Parent  := Form;
     LblMsg.Left    := 20;
-    LblMsg.Top     := 110;
+    LblMsg.Top     := 62;
     LblMsg.Width   := 440;
     LblMsg.Caption := CustomMessage('UninstallDataMsg');
 
-    ChkCred := TCheckBox.Create(Form);
-    ChkCred.Parent  := Form;
-    ChkCred.Left    := 20;
-    ChkCred.Top     := 140;
-    ChkCred.Width   := 440;
-    ChkCred.Caption := CustomMessage('UninstallCredentials');
-    ChkCred.Checked := DeleteCredentials;
+    BtnSelectAll := TButton.Create(Form);
+    BtnSelectAll.Parent   := Form;
+    BtnSelectAll.Caption  := CustomMessage('UninstallSelectAll');
+    BtnSelectAll.Left     := 20;
+    BtnSelectAll.Top      := 85;
+    BtnSelectAll.Width    := 140;
+    BtnSelectAll.Height   := 24;
+    BtnSelectAll.OnClick  := @SelectAllClick;
 
-    ChkBilling := TCheckBox.Create(Form);
-    ChkBilling.Parent  := Form;
-    ChkBilling.Left    := 20;
-    ChkBilling.Top     := 170;
-    ChkBilling.Width   := 440;
-    ChkBilling.Caption := CustomMessage('UninstallBilling');
-    ChkBilling.Checked := DeleteBilling;
+    BtnDeselectAll := TButton.Create(Form);
+    BtnDeselectAll.Parent   := Form;
+    BtnDeselectAll.Caption  := CustomMessage('UninstallDeselectAll');
+    BtnDeselectAll.Left     := 170;
+    BtnDeselectAll.Top      := 85;
+    BtnDeselectAll.Width    := 140;
+    BtnDeselectAll.Height   := 24;
+    BtnDeselectAll.OnClick  := @DeselectAllClick;
 
-    ChkWork := TCheckBox.Create(Form);
-    ChkWork.Parent  := Form;
-    ChkWork.Left    := 20;
-    ChkWork.Top     := 200;
-    ChkWork.Width   := 440;
-    ChkWork.Caption := CustomMessage('UninstallWorkFiles');
-    ChkWork.Checked := DeleteWorkFiles;
+    GChkCred := TCheckBox.Create(Form);
+    GChkCred.Parent  := Form;
+    GChkCred.Left    := 20;
+    GChkCred.Top     := 122;
+    GChkCred.Width   := 440;
+    GChkCred.Caption := CustomMessage('UninstallCredentials');
+    GChkCred.Checked := DeleteCredentials;
+
+    GChkBilling := TCheckBox.Create(Form);
+    GChkBilling.Parent  := Form;
+    GChkBilling.Left    := 20;
+    GChkBilling.Top     := 150;
+    GChkBilling.Width   := 440;
+    GChkBilling.Caption := CustomMessage('UninstallBilling');
+    GChkBilling.Checked := DeleteBilling;
+
+    GChkLogs := TCheckBox.Create(Form);
+    GChkLogs.Parent  := Form;
+    GChkLogs.Left    := 20;
+    GChkLogs.Top     := 178;
+    GChkLogs.Width   := 440;
+    GChkLogs.Caption := CustomMessage('UninstallLogs');
+    GChkLogs.Checked := DeleteLogs;
+
+    GChkWork := TCheckBox.Create(Form);
+    GChkWork.Parent  := Form;
+    GChkWork.Left    := 20;
+    GChkWork.Top     := 206;
+    GChkWork.Width   := 440;
+    GChkWork.Caption := CustomMessage('UninstallWorkFiles');
+    GChkWork.Checked := DeleteWorkFiles;
 
     BtnOK := TButton.Create(Form);
     BtnOK.Parent      := Form;
     BtnOK.Caption     := 'OK';
     BtnOK.Left        := 195;
-    BtnOK.Top         := 330;
+    BtnOK.Top         := 320;
     BtnOK.Width       := 90;
     BtnOK.ModalResult := mrOK;
 
     Form.ShowModal;
 
-    DeleteCredentials := ChkCred.Checked;
-    DeleteBilling     := ChkBilling.Checked;
-    DeleteWorkFiles   := ChkWork.Checked;
+    DeleteCredentials := GChkCred.Checked;
+    DeleteBilling     := GChkBilling.Checked;
+    DeleteLogs        := GChkLogs.Checked;
+    DeleteWorkFiles   := GChkWork.Checked;
 
     Form.Free;
 
-    if DeleteCredentials or DeleteBilling or DeleteWorkFiles then
+    if DeleteCredentials or DeleteBilling or DeleteLogs or DeleteWorkFiles then
     begin
-      if MsgBox(CustomMessage('UninstallConfirmMsg'), mbConfirmation, MB_YESNO) = IDNO then
+      if not ShowConfirmDeleteForm then
         Confirmed := False;
     end;
   until Confirmed;
@@ -414,11 +578,13 @@ begin
         DeleteFile(ExpandConstant('{app}\Billing\tts_voices_cost.json'));
     end;
 
+    if DeleteLogs then
+      if DirExists(ExpandConstant('{app}\Logs')) then
+        DelTree(ExpandConstant('{app}\Logs'), True, True, True);
+
     if DeleteWorkFiles then
-    begin
-      if DirExists(ExpandConstant('{app}\Workspace')) then DelTree(ExpandConstant('{app}\Workspace'), True, True, True);
-      if DirExists(ExpandConstant('{app}\Logs'))      then DelTree(ExpandConstant('{app}\Logs'),      True, True, True);
-    end;
+      if DirExists(ExpandConstant('{app}\Workspace')) then
+        DelTree(ExpandConstant('{app}\Workspace'), True, True, True);
   end;
 
   if CurUninstallStep = usPostUninstall then
