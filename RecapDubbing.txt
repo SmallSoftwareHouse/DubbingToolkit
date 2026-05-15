@@ -419,6 +419,9 @@ Logging PowerShell (sistema unificato)
 - Tutti gli script PowerShell runtime usano ps/Logging.psm1 (Write-Log) + ps/Messages.psm1.
 - Script allineati: VenvManager.ps1, Launcher.ps1, InstallDependencies.ps1.
 - RuntimeDependencies.ps1 usa Write-RDLog proprio (con file logging aggiuntivo); allineamento futuro.
+- Livelli disponibili: INFO (grigio), WARN (giallo), ERROR (rosso), HIGHLIGHT (ciano), OK (verde).
+  HIGHLIGHT: messaggi di avanzamento installazione pacchetti.
+  OK: completamento con successo di operazioni significative.
 
 Pipeline (stage e percorsi Workspace)
 --------------------------------------
@@ -501,6 +504,17 @@ Runtime Dependencies
 - voices_output: scaricato da SmallSoftwareHouse/DubbingToolkit GitHub Releases (formato .7z)
 - Estrazione: Tools/7zr.exe (bundled nel repo e nel payload installer)
 - Nessuna dipendenza da tool di sistema (tar.exe rimosso)
+
+Installer (InnoSetup)
+----------------------
+- Release alpha pubblicata: v0.1.0-alpha su GitHub Releases (SmallSoftwareHouse/DubbingToolkit)
+- Asset release: setup.exe + voices_output.7z
+- Update checker: punta a Gist dubbing_toolkit_version.json (SmallSoftwareHouse)
+- Disinstallatore: elimina venv automaticamente; checkbox per credentials, Billing, Logs, Workspace
+- InstallDependencies.ps1: pre-installa setuptools==67.8.0 + wheel prima del loop principale
+- openai-whisper installato con --no-build-isolation (evita errore pkg_resources in env isolato)
+- simpleaudio disabilitato (richiede Visual C++ Build Tools, non usato nella pipeline)
+- ExtraDiskSpaceRequired=16106127360 (~15 GB) per mostrare spazio disco realistico all'utente
 
 ================================
 = SEZIONE 4 – Scripts Overview =
@@ -732,6 +746,14 @@ Nota generale
       tts_merge.py: skip difensivo file vuoti/corrotti invece di crash ffmpeg.
       Contatori [N/total] in tts_azure.py, tts_google.py, tts_merge.py.
       SESSIONE.md 2026-05-15.
+
+--- [COMPLETATO] Pubblicazione release alpha v0.1.0
+    → GitHub Releases: setup.exe + voices_output.7z sotto tag v0.1.0-alpha.
+      Update checker punta a Gist dubbing_toolkit_version.json.
+      InnoSetup: disinstallatore con checkbox dati utente, eliminazione automatica venv,
+      ExtraDiskSpaceRequired realistico, LaunchDescription localizzato.
+      InstallDependencies: pre-install setuptools, --no-build-isolation per whisper,
+      simpleaudio disabilitato, livelli HIGHLIGHT (ciano) e OK (verde) in Logging.psm1.
 
 --- [COMPLETATO] UX miglioramenti menu TTS e workflow
     → Voce TTS mostrata con engine (es. "A (Neural2)"). Archive pruning mostra limite
