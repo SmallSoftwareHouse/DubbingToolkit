@@ -48,7 +48,7 @@
   "VenvActivating": "Virtuelle Umgebung wird aktiviert: {0}",
   "VenvActivated": "[OK] Virtuelle Umgebung aktiviert: {0}",
   "VenvActivateError": "Fehler bei der Aktivierung der virtuellen Umgebung",
-  "DependenciesFinished": "== InstallDependencies.ps1 erfolgreich abgeschlossen ==",
+  "DependenciesFinished": "Abhängigkeiten erfolgreich installiert.",
   "InstallingPackage": "[INSTALLATION] ({0}/{1}) {2}",
   "PackageFailed": "[FEHLER] Paketinstallation fehlgeschlagen: {0}",
   "API_chek_CredentialsMissing": "Fehlende Schlüssel oder unvollständige Anmeldedateien",

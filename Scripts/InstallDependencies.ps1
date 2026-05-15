@@ -153,4 +153,4 @@ foreach ($ReqFile in $RequirementsFiles) {
     }
 }
 
-Write-Log "DependenciesFinished"
+Write-Log "DependenciesFinished" "OK"

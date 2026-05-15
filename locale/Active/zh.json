@@ -48,7 +48,7 @@
   "VenvActivating": "激活虚拟环境：{0}",
   "VenvActivated": "[确定] 虚拟环境已激活：{0}",
   "VenvActivateError": "虚拟环境激活错误",
-  "DependenciesFinished": "== InstallDependencies.ps1 已成功执行 ==",
+  "DependenciesFinished": "依赖项安装成功。",
   "InstallingPackage": "[安装] ({0}/{1}) {2}",
   "PackageFailed": "[错误] 安装软件包失败：{0}",
   "API_chek_CredentialsMissing": "密钥缺失或凭证文件不完整",

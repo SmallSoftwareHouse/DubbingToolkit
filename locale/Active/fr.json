@@ -48,7 +48,7 @@
   "VenvActivating": "Activation de l'environnement virtuel : {0}",
   "VenvActivated": "[OK] Environnement virtuel activé : {0}",
   "VenvActivateError": "Erreur d'activation de l'environnement virtuel",
-  "DependenciesFinished": "== InstallDependencies.ps1 s'est terminé avec succès ==",
+  "DependenciesFinished": "Dépendances installées avec succès.",
   "InstallingPackage": "[INSTALLATION] ({0}/{1}) {2}",
   "PackageFailed": "[ERREUR] Échec de l'installation du paquet : {0}",
   "API_chek_CredentialsMissing": "Clés manquantes ou fichiers d'identification incomplets",

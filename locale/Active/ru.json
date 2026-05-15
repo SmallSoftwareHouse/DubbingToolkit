@@ -48,7 +48,7 @@
   "VenvActivating": "Активация виртуальной среды: {0}",
   "VenvActivated": "[OK] Виртуальная среда активирована: {0}",
   "VenvActivateError": "Ошибка активации виртуальной среды",
-  "DependenciesFinished": "== InstallDependencies.ps1 успешно завершена ==",
+  "DependenciesFinished": "Зависимости успешно установлены.",
   "InstallingPackage": "[УСТАНОВКА] ({0}/{1}) {2}",
   "PackageFailed": "[ОШИБКА] Не удалось установить пакет: {0}",
   "API_chek_CredentialsMissing": "Отсутствуют ключи или файлы учетных данных неполны.",

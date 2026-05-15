@@ -10,7 +10,7 @@ function Write-Log {
         [Parameter(Mandatory=$true)]
         [string]$Key,
 
-        [ValidateSet("INFO","WARN","ERROR","HIGHLIGHT")]
+        [ValidateSet("INFO","WARN","ERROR","HIGHLIGHT","OK")]
         [string]$Level = "INFO",
 
         [string[]]$Args = @()
@@ -24,6 +24,7 @@ function Write-Log {
         "WARN"  { $color = "Yellow" }
         "ERROR"     { $color = "Red" }
         "HIGHLIGHT" { $color = "Cyan" }
+        "OK"        { $color = "Green" }
         default     { $color = "DarkGray" }
     }
 
