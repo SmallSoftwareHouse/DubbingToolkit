@@ -595,6 +595,9 @@ begin
     if DeleteWorkFiles then
       if DirExists(ExpandConstant('{app}\Workspace')) then
         DelTree(ExpandConstant('{app}\Workspace'), True, True, True);
+
+    if DirExists(ExpandConstant('{app}\venv')) then
+      DelTree(ExpandConstant('{app}\venv'), True, True, True);
   end;
 
   if CurUninstallStep = usPostUninstall then

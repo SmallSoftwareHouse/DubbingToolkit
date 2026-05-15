@@ -37,7 +37,7 @@ azure-cognitiveservices-speech==1.44.0
 
 # Audio / media
 pydub==0.25.1
-simpleaudio==1.0.4
+#simpleaudio==1.0.4  # disabled: requires Visual C++ Build Tools, not used in main pipeline
 onnxruntime==1.16.3
 
 # Utilities

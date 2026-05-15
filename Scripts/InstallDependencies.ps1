@@ -42,6 +42,11 @@ Write-Log "InstallDependencies_Starting"
 $env:PIP_DISABLE_PIP_VERSION_CHECK = "1"
 
 # ----------------------------------------
+# 2.1 Pre-install: ensure setuptools and wheel are available before any build
+# ----------------------------------------
+& "$VenvPath\Scripts\pip.exe" install --disable-pip-version-check setuptools==67.8.0 wheel
+
+# ----------------------------------------
 # 3 Lettura pacchetti già installati
 # ----------------------------------------
 $InstalledNowRaw = & "$VenvPath\Scripts\pip.exe" list --format=freeze
@@ -58,7 +63,7 @@ foreach ($line in $InstalledNowRaw) {
 # 4 Funzione di installazione pacchetto singolo
 # ----------------------------------------
 function Install-Package-DabbingToolkit($pkg, $extraIndexLink) {
-    Write-Log "InstallingPackage" "INFO" @($Index, $Total, $pkg)
+    Write-Log "InstallingPackage" "HIGHLIGHT" @($Index, $Total, $pkg)
 
     $InstallArgs = @(
         "--disable-pip-version-check"
