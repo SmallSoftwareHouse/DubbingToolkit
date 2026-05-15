@@ -41,6 +41,11 @@
     "type": "file"
   },
   {
+    "source": "Settings\\reset.json",
+    "dest": "Settings",
+    "type": "file"
+  },
+  {
     "source": "credentials",
     "dest": "credentials",
     "type": "sanitized",
