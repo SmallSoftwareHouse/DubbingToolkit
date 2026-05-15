@@ -170,7 +170,13 @@ def tts_menu(messages, settings=None):
             voce_display = format_field(None, None, messages.DUBBING_LabelVoiceLocked)
             voce_enabled = False
         else:
-            voce_display = format_field(config_status.get("display_name"), messages.DUBBING_LabelNotSelected)
+            voice_name = config_status.get("display_name")
+            voice_engine = config_status.get("voice_engine")
+            if voice_name and voice_engine:
+                voice_label = f"{voice_name} ({voice_engine})"
+            else:
+                voice_label = voice_name
+            voce_display = format_field(voice_label, messages.DUBBING_LabelNotSelected)
             voce_enabled = True
 
         # Motore TTS

@@ -170,6 +170,7 @@ def aggiorna_motore_tts(messages):
         if config_status.get("provider") != nuovo:
             config_status["display_name"] = None
             config_status["api_tag"] = None
+            config_status["voice_engine"] = None
 
         config_status["provider"] = nuovo
         return
@@ -194,8 +195,8 @@ def aggiorna_voce(messages):
     if selected:
         config_status["display_name"] = selected["display_name"]
         config_status["api_tag"] = selected["api_tag"]
-        #config_status["language_code"] = selected["language_code"]
         config_status["provider"] = selected["provider"].lower()
+        config_status["voice_engine"] = selected.get("engine", "")
         config_status["tts_language_code"] = selected.get("language_code", config_status["language_code"])
 
 
