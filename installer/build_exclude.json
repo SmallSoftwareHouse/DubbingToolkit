@@ -18,10 +18,7 @@
   "PERSONAL-GIT-RULES.md",
   "SESSIONE.md",
   "README.md",
-  "Scripts\\maintenance\\translation",
-  "Scripts\\maintenance\\GenerateWhisperLangs.py",
-  "Scripts\\maintenance\\build_translation_pairs.py",
-  "Scripts\\maintenance\\build_helsinki_translation_pairs.py",
+  "Scripts\\maintenance\\",
   "Tools\\ffmpeg-7.1.1-full_build",
   "voices\\voices_output\\",
   "locale\\Active\\backup\\"
