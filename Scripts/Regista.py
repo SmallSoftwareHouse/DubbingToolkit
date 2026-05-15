@@ -670,6 +670,7 @@ def main(messages):
                              "available_version": _available_version,
                              "gist_url": _GIST_URL})
     elif _update_available is False:
+        print(Fore.GREEN + messages.update_checker_up_to_date.format(current=_current_version) + Style.RESET_ALL)
         logger.info("Regista", "main", "Application is up to date",
                     context={"current_version": _current_version})
     else:

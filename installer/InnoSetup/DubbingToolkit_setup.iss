@@ -149,6 +149,15 @@ russian.UninstallConfirmText=Это действие необратимо.%nВы
 russian.UninstallConfirmYes=Да, удалить
 russian.UninstallConfirmCancel=Отмена
 
+; --- [02.06] AVVIO POST-INSTALLAZIONE ---
+english.LaunchDescription=Launch Dubbing Toolkit
+italian.LaunchDescription=Avvia Dubbing Toolkit
+french.LaunchDescription=Lancer Dubbing Toolkit
+german.LaunchDescription=Dubbing Toolkit starten
+spanish.LaunchDescription=Iniciar Dubbing Toolkit
+portuguese.LaunchDescription=Iniciar o Dubbing Toolkit
+russian.LaunchDescription=Запустить Dubbing Toolkit
+
 ; --- [02.04] MESSAGGIO FINALE DISINSTALLAZIONE ---
 english.UninstallRemainingMsg=If work files or credentials were preserved, the following folders may still be present in the installation folder:%n%n  - Workspace  (projects, audio, video, transcripts, etc.)%n  - Billing%n  - credentials%n  - Logs%n%nYou can find them in the installation folder and delete them manually if you no longer need them.
 italian.UninstallRemainingMsg=Se i file di lavoro o le credenziali sono stati preservati, le seguenti cartelle potrebbero essere ancora presenti nella cartella di installazione:%n%n  - Workspace  (progetti, audio, video, trascrizioni, ecc.)%n  - Billing%n  - credentials%n  - Logs%n%nLe trovi nella cartella di installazione. Puoi eliminarle manualmente se non ti servono più.
@@ -181,7 +190,7 @@ Name: "{group}\Documentation";                       Filename: "{app}\Docs";    
 ; [07] AVVIO POST-INSTALLAZIONE
 ; ============================================================
 [Run]
-Filename: "{app}\StartDubbing.bat"; Description: "Avvia Dubbing Toolkit"; Flags: nowait postinstall
+Filename: "{app}\StartDubbing.bat"; Description: "{cm:LaunchDescription}"; Flags: nowait postinstall
 
 ; ============================================================
 ; [08] CODICE PASCAL

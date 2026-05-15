@@ -491,6 +491,7 @@
   "update_checker_available_title": "Nova versão disponível",
   "update_checker_available_msg": "DubbingToolkit {available} está disponível (versão instalada: {current}). Baixe em: https://github.com/SmallSoftwareHouse/DubbingToolkit/releases",
   "update_checker_failed": "Não foi possível verificar atualizações (sem conexão ou erro de rede).",
+  "update_checker_up_to_date": "DubbingToolkit está atualizado (versão {current}).",
   "RD_CheckStart": "=== Verificacao de dependencias de tempo de execucao INICIO ===",
   "RD_CheckEnd": "=== Verificacao de dependencias de tempo de execucao FIM - status: {0} ===",
   "RD_FfmpegPresent": "ffmpeg: ja presente - download ignorado",

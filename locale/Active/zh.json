@@ -491,6 +491,7 @@
   "update_checker_available_title": "有新版本可用",
   "update_checker_available_msg": "DubbingToolkit {available} 现已可用（已安装版本：{current}）。下载地址：https://github.com/SmallSoftwareHouse/DubbingToolkit/releases",
   "update_checker_failed": "无法检查更新（无网络连接或网络错误）。",
+  "update_checker_up_to_date": "DubbingToolkit 已是最新版本（版本 {current}）。",
   "RD_CheckStart": "=== 运行时依赖项检查 开始 ===",
   "RD_CheckEnd": "=== 运行时依赖项检查 结束 - 状态: {0} ===",
   "RD_FfmpegPresent": "ffmpeg: 已存在 - 跳过下载",
