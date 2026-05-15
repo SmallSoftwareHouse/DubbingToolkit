@@ -13,6 +13,7 @@
   "Checkpoint1": "Checkpoint 1: Initializing the virtual environment...",
   "Checkpoint1_5": "Checkpoint 1.5: Verify/Install Dependencies...",
   "InstallDependencies_Starting": "[INSTALL] Starting dependency installation",
+  "InstallDependencies_JsonNotFound": "[ERROR] Dependencies file not found: {0}",
   "InstallDependencies_ProcessingRequirements": "Processing requirements file: {0}",
   "InstallDependencies_AllDependenciesAlreadyInstalled": "All dependencies are already installed, proceeding.",
   "InstallDependencies_AllDependenciesInstalled": "All dependencies installed successfully.",

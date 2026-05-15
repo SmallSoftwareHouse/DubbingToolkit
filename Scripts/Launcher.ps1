@@ -241,7 +241,7 @@ function Start-Launcher {
     # --------------------------------------------------
     $VenvManagerPath = Join-Path $RootFolder 'Scripts\VenvManager.ps1'
     $InstallDepsPath = Join-Path $RootFolder 'Scripts\InstallDependencies.ps1'
-    $ReqMain = Join-Path $RootFolder 'Scripts\requirements.txt'
+    $DepsJson = Join-Path $RootFolder 'Config\dependencies.json'
 
     if (Test-Path $VenvManagerPath) {
         Write-Log "Launcher_RunningVenvManager" "INFO" @($VenvManagerPath)
@@ -257,7 +257,7 @@ function Start-Launcher {
     if (Test-Path $InstallDepsPath) {
         Write-Log "RunningInstallDependencies" "INFO" @($InstallDepsPath)
         Write-Log "Checkpoint1_5"
-        & $InstallDepsPath -VenvPath $VenvPath -RequirementsFile $ReqMain
+        & $InstallDepsPath -VenvPath $VenvPath -DependenciesFile $DepsJson
         if (-not $?) { Write-Log "InstallDependenciesFailed" "ERROR"; exit 1 }
     } else {
         Write-Log "InstallDependenciesNotFound" "ERROR" @($InstallDepsPath)

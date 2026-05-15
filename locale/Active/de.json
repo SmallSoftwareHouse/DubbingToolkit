@@ -13,6 +13,7 @@
   "Checkpoint1": "Kontrollpunkt 1: Initialisierung der virtuellen Umgebung...",
   "Checkpoint1_5": "Prüfpunkt 1.5: Abhängigkeiten prüfen/installieren...",
   "InstallDependencies_Starting": "[INSTALLATION] Installation der Abhängigkeiten wird gestartet",
+  "InstallDependencies_JsonNotFound": "[FEHLER] Abhängigkeitsdatei nicht gefunden: {0}",
   "InstallDependencies_ProcessingRequirements": "Verarbeitung der Anforderungsdatei: {0}",
   "InstallDependencies_AllDependenciesAlreadyInstalled": "Alle Abhängigkeiten sind bereits installiert, fahren wir fort.",
   "InstallDependencies_AllDependenciesInstalled": "Alle Abhängigkeiten wurden erfolgreich installiert.",

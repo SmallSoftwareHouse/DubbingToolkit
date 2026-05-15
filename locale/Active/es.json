@@ -13,6 +13,7 @@
   "Checkpoint1": "Punto de control 1: Inicializando el entorno virtual...",
   "Checkpoint1_5": "Punto de control 1.5: Verificar/Instalar dependencias...",
   "InstallDependencies_Starting": "[INSTALAR] Iniciando la instalación de dependencias",
+  "InstallDependencies_JsonNotFound": "[ERROR] Archivo de dependencias no encontrado: {0}",
   "InstallDependencies_ProcessingRequirements": "Procesando el archivo de requisitos: {0}",
   "InstallDependencies_AllDependenciesAlreadyInstalled": "Todas las dependencias ya están instaladas, procedemos.",
   "InstallDependencies_AllDependenciesInstalled": "Todas las dependencias se instalaron correctamente.",

@@ -13,6 +13,7 @@
   "Checkpoint1": "Ponto de verificação 1: Inicializando o ambiente virtual...",
   "Checkpoint1_5": "Ponto de verificação 1.5: Verificar/Instalar dependências...",
   "InstallDependencies_Starting": "[INSTALAR] Iniciando a instalação de dependências",
+  "InstallDependencies_JsonNotFound": "[ERRO] Ficheiro de dependências não encontrado: {0}",
   "InstallDependencies_ProcessingRequirements": "Processando arquivo de requisitos: {0}",
   "InstallDependencies_AllDependenciesAlreadyInstalled": "Todas as dependências já estão instaladas, vamos prosseguir.",
   "InstallDependencies_AllDependenciesInstalled": "Todas as dependências foram instaladas com sucesso.",

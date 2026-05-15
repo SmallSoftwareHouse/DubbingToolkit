@@ -1,54 +1,50 @@
 # ==================================================================
 # INSTALLDEPENDENCIES.PS1 - DEPENDENCIES INSTALLATION FOR AUTOMATIC DUBBING
-# Updated for multiple requirements files, cache disabled, Torch CPU/CUDA auto
+# Reads ordered package list from Config/dependencies.json.
+# Installs each package one by one in the declared order.
 # ==================================================================
 
 param(
     [Parameter(Mandatory=$true)]
-    [string[]]$RequirementsFiles,  # Array di file requirements da installare in sequenza
+    [string]$DependenciesFile,   # Path to Config/dependencies.json
     [Parameter(Mandatory=$true)]
     [string]$VenvPath
 )
 
 
 # ==================================================================
-#  1 Determine root folder. Load localization messages from settings.json
+#  1  Determine root folder. Load localization messages from settings.json
 # ==================================================================
 
 $RootFolder = Split-Path $PSScriptRoot -Parent
 $LocaleFolder = Join-Path $RootFolder 'Locale'
 
-# Legge la lingua dall'impostazione centralizzata
 $SettingFile = Join-Path $RootFolder 'Settings\settings.json'
 $Settings = Get-Content $SettingFile -Encoding UTF8 | ConvertFrom-Json
 $interface_langKey = $Settings.interface_lang
 
-# Carica i messaggi corrispondenti
 $MessagesFile = Join-Path $LocaleFolder ("Active\$interface_langKey.json")
 $Messages = Get-Content $MessagesFile -Encoding UTF8 | ConvertFrom-Json
 
-# Initialize logging module
 $psDir = Join-Path $RootFolder 'ps'
 Import-Module (Join-Path $psDir 'Logging.psm1') -Force
 Set-Messages $Messages
 
 Write-Log "InstallDependencies_Starting"
 
-# ----------------------------------------
-# 2 Attiva l'ambiente virtuale
-# ----------------------------------------
+
+# ==================================================================
+#  2  Activate venv and pre-configure pip
+# ==================================================================
+
 & "$VenvPath\Scripts\Activate.ps1"
-# Disabilita messaggio di aggiornamento pip
 $env:PIP_DISABLE_PIP_VERSION_CHECK = "1"
 
-# ----------------------------------------
-# 2.1 Pre-install: ensure setuptools and wheel are available before any build
-# ----------------------------------------
-& "$VenvPath\Scripts\pip.exe" install --disable-pip-version-check setuptools==67.8.0 wheel
 
-# ----------------------------------------
-# 3 Lettura pacchetti già installati
-# ----------------------------------------
+# ==================================================================
+#  3  Read packages already installed in the venv
+# ==================================================================
+
 $InstalledNowRaw = & "$VenvPath\Scripts\pip.exe" list --format=freeze
 $InstalledNow = @{}
 foreach ($line in $InstalledNowRaw) {
@@ -59,97 +55,109 @@ foreach ($line in $InstalledNowRaw) {
     }
 }
 
-# ----------------------------------------
-# 4 Funzione di installazione pacchetto singolo
-# ----------------------------------------
-function Install-Package-DabbingToolkit($pkg, $extraIndexLink) {
-    Write-Log "InstallingPackage" "HIGHLIGHT" @($Index, $Total, $pkg)
 
-    $InstallArgs = @(
-        "--disable-pip-version-check"
-        $pkg
-    )
+# ==================================================================
+#  4  Read ordered package list from JSON
+# ==================================================================
 
-    # openai-whisper ships as source tarball and requires build isolation disabled
-    # so it uses the setuptools already installed in the venv instead of a temp env
-    if ($pkg -match '^openai-whisper') {
-        $InstallArgs += "--no-build-isolation"
-    }
-
-    if ($extraIndexLink) {
-        $InstallArgs += "-f"
-        $InstallArgs += $extraIndexLink
-    }
-
-    try {
-        & "$VenvPath\Scripts\pip.exe" install @InstallArgs
-    } catch {
-        Write-Log "PackageFailed" "ERROR" @($pkg)
-        exit 1
-    }
+if (-not (Test-Path $DependenciesFile)) {
+    Write-Log "InstallDependencies_JsonNotFound" "ERROR" @($DependenciesFile)
+    exit 1
 }
 
-# ----------------------------------------
-# 5 Ciclo su ogni file requirements
-# ----------------------------------------
-foreach ($ReqFile in $RequirementsFiles) {
-    #Write-Host ("----------------------------------------") -ForegroundColor DarkGray
-    Write-Log "InstallDependencies_ProcessingRequirements" "INFO" @($ReqFile)
+$DepsJson = Get-Content $DependenciesFile -Encoding UTF8 | ConvertFrom-Json
 
-    # 5a. Lettura contenuto requirements
-    $ReqContent = Get-Content $ReqFile | Where-Object {
-        $_ -and $_ -notmatch '^\s*#' -and $_ -notmatch '^-f '
-    } | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '' }
 
-    # 5b. Costruzione lista pacchetti da installare confrontando con quelli già installati
-    $ToInstall = @()
-    foreach ($pkg in $ReqContent) {
-        # Override Torch / TorchVision / Torchaudio in base a CUDA
-        if ($pkg -match '^torch$') {
-            $cudaPath = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA"
-            if (Test-Path $cudaPath) {
-                $TorchSuffix = '+cu121'
-            } else {
-                $TorchSuffix = '+cpu'
-            }
-            $pkgFull = "torch==2.1.0$TorchSuffix"
-            $Global:TorchSuffixForOthers = $TorchSuffix
-        } elseif ($pkg -match '^torchvision$') {
-            $pkgFull = "torchvision==0.16.0$Global:TorchSuffixForOthers"
-        } elseif ($pkg -match '^torchaudio$') {
-            $pkgFull = "torchaudio==2.1.0$Global:TorchSuffixForOthers"
-        } else {
-            $pkgFull = $pkg
+# ==================================================================
+#  5  CUDA detection for PyTorch variant selection
+# ==================================================================
+
+$cudaPath = "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA"
+if (Test-Path $cudaPath) {
+    $TorchSuffix = '+cu121'
+} else {
+    $TorchSuffix = '+cpu'
+}
+
+$TorchVersion      = "2.1.0"
+$TorchVisionVersion = "0.16.0"
+$TorchAudioVersion  = "2.1.0"
+
+
+# ==================================================================
+#  6  Build install list preserving JSON order
+# ==================================================================
+
+$ToInstall = [System.Collections.Generic.List[hashtable]]::new()
+
+foreach ($entry in $DepsJson) {
+
+    # Resolve actual package string
+    if ($entry.torch_variant) {
+        switch -Wildcard ($entry.package) {
+            'torch'       { $pkgFull = "torch==$TorchVersion$TorchSuffix" }
+            'torchvision' { $pkgFull = "torchvision==$TorchVisionVersion$TorchSuffix" }
+            'torchaudio'  { $pkgFull = "torchaudio==$TorchAudioVersion$TorchSuffix" }
+            default       { $pkgFull = $entry.package }
         }
-
-        # Normalizzazione nome pacchetto
-        $pkgNameNorm = $pkgFull.Split("==")[0].ToLower() -replace '[-_]', ''
-        $pkgVer = ($pkgFull -split "==")[1]
-
-        # Verifica se già installato e versione corretta
-        if (-not ($InstalledNow.ContainsKey($pkgNameNorm)) -or $InstalledNow[$pkgNameNorm] -ne $pkgVer) {
-            $ToInstall += $pkgFull
-        }
+    } else {
+        $pkgFull = $entry.package
     }
 
-    $Total = $ToInstall.Count
-    if ($Total -eq 0) {
+    # Normalize name for comparison with installed list
+    $pkgParts    = $pkgFull -split "=="
+    $pkgNameNorm = $pkgParts[0].ToLower() -replace '[-_]', ''
+    $pkgVer      = if ($pkgParts.Count -ge 2) { $pkgParts[1] } else { $null }
+
+    # Skip if already installed at the correct version.
+    # Packages without a pinned version are always installed (no version to compare).
+    if ($pkgVer -and $InstalledNow.ContainsKey($pkgNameNorm) -and $InstalledNow[$pkgNameNorm] -eq $pkgVer) {
         continue
     }
 
-    # 5c. Ciclo di installazione pacchetti mancanti
-    $Index = 0
-    foreach ($pkg in $ToInstall) {
-        $Index++
+    $ToInstall.Add(@{
+        Package    = $pkgFull
+        Flags      = $entry.flags
+        ExtraIndex = $entry.extra_index
+    })
+}
 
-        # Link PyTorch se necessario
-        if ($pkg -match '^torch' -or $pkg -match '^torchvision' -or $pkg -match '^torchaudio') {
-            $ExtraLink = 'https://download.pytorch.org/whl/torch_stable.html'
-        } else {
-            $ExtraLink = $null
-        }
 
-        Install-Package-DabbingToolkit $pkg $ExtraLink
+# ==================================================================
+#  7  Install packages one by one in order
+# ==================================================================
+
+$Total = $ToInstall.Count
+
+if ($Total -eq 0) {
+    Write-Log "InstallDependencies_AllDependenciesAlreadyInstalled" "OK"
+    exit 0
+}
+
+$Index = 0
+foreach ($item in $ToInstall) {
+    $Index++
+    Write-Log "InstallingPackage" "HIGHLIGHT" @($Index, $Total, $item.Package)
+
+    $InstallArgs = @("--disable-pip-version-check")
+
+    # Add any per-package flags declared in JSON (e.g. --no-build-isolation)
+    foreach ($flag in $item.Flags) {
+        $InstallArgs += $flag
+    }
+
+    # Add extra index if declared
+    if ($item.ExtraIndex) {
+        $InstallArgs += "-f"
+        $InstallArgs += $item.ExtraIndex
+    }
+
+    $InstallArgs += $item.Package
+
+    & "$VenvPath\Scripts\pip.exe" install @InstallArgs
+    if ($LASTEXITCODE -ne 0) {
+        Write-Log "PackageFailed" "ERROR" @($item.Package)
+        exit 1
     }
 }
 

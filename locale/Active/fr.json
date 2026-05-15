@@ -13,6 +13,7 @@
   "Checkpoint1": "Point de contrôle 1 : Initialisation de l'environnement virtuel…",
   "Checkpoint1_5": "Point de contrôle 1.5 : Vérifier/Installer les dépendances…",
   "InstallDependencies_Starting": "[INSTALL] Démarrage de l'installation des dépendances",
+  "InstallDependencies_JsonNotFound": "[ERREUR] Fichier de dépendances introuvable : {0}",
   "InstallDependencies_ProcessingRequirements": "Traitement du fichier des exigences : {0}",
   "InstallDependencies_AllDependenciesAlreadyInstalled": "Toutes les dépendances sont déjà installées, continuons.",
   "InstallDependencies_AllDependenciesInstalled": "Toutes les dépendances ont été installées avec succès.",

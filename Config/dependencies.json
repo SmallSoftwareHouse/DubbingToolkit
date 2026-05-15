@@ -1,0 +1,198 @@
+[
+  {
+    "package": "setuptools==67.8.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "pre-install: must be present before any build-system package"
+  },
+  {
+    "package": "wheel==0.47.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "pre-install: required for building wheels"
+  },
+  {
+    "package": "importlib-resources==6.5.2",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "backport for resource access; required by several packages"
+  },
+  {
+    "package": "numpy==1.26.4",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "core numerical library; must precede torch and transformers"
+  },
+  {
+    "package": "colorama==0.4.6",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "console color support"
+  },
+  {
+    "package": "torch",
+    "flags": [],
+    "torch_variant": true,
+    "extra_index": "https://download.pytorch.org/whl/torch_stable.html",
+    "notes": "version and +cpu/+cu121 suffix resolved at runtime by CUDA detection"
+  },
+  {
+    "package": "torchvision",
+    "flags": [],
+    "torch_variant": true,
+    "extra_index": "https://download.pytorch.org/whl/torch_stable.html",
+    "notes": "must follow torch; same suffix applied"
+  },
+  {
+    "package": "torchaudio",
+    "flags": [],
+    "torch_variant": true,
+    "extra_index": "https://download.pytorch.org/whl/torch_stable.html",
+    "notes": "must follow torch; same suffix applied"
+  },
+  {
+    "package": "transformers==4.39.3",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "Helsinki-NLP MarianMT translation models"
+  },
+  {
+    "package": "sentencepiece==0.1.99",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "tokenizer required by MarianMT"
+  },
+  {
+    "package": "sacremoses==0.1.1",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "text normalization required by MarianMT"
+  },
+  {
+    "package": "optimum==1.18.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "HuggingFace optimization toolkit"
+  },
+  {
+    "package": "tiktoken==0.3.1",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "tokenizer used by openai-whisper"
+  },
+  {
+    "package": "openai-whisper==20231117",
+    "flags": ["--no-build-isolation"],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "--no-build-isolation required: ships as source tarball and must reuse venv setuptools"
+  },
+  {
+    "package": "google-cloud-core==2.3.2",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "base Google Cloud library; must precede other google-cloud-* packages"
+  },
+  {
+    "package": "google-api-core==2.17.1",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "Google API core; must precede google-cloud-translate and TTS"
+  },
+  {
+    "package": "google-auth==2.27.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "Google authentication"
+  },
+  {
+    "package": "google-auth-oauthlib==0.4.6",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "OAuth support for Google auth"
+  },
+  {
+    "package": "google-auth-httplib2==0.1.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "httplib2 transport for Google auth"
+  },
+  {
+    "package": "google-cloud-translate==3.11.1",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "Google Cloud Translation API"
+  },
+  {
+    "package": "google-cloud-texttospeech==2.16.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "Google Cloud TTS API"
+  },
+  {
+    "package": "azure-cognitiveservices-speech==1.44.0",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "Azure Speech SDK for TTS"
+  },
+  {
+    "package": "pydub==0.25.1",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "audio manipulation; requires ffmpeg on PATH"
+  },
+  {
+    "package": "onnxruntime==1.16.3",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "ONNX model inference runtime"
+  },
+  {
+    "package": "psutil==7.2.2",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "system process utilities"
+  },
+  {
+    "package": "pysrt==1.1.2",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "SRT subtitle file parsing"
+  },
+  {
+    "package": "send2trash==1.8.3",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "safe file deletion to recycle bin"
+  },
+  {
+    "package": "urllib3==1.26.20",
+    "flags": [],
+    "torch_variant": false,
+    "extra_index": null,
+    "notes": "HTTP client; pinned for compatibility with google-auth"
+  }
+]

@@ -13,6 +13,7 @@
   "Checkpoint1": "检查点 1：初始化虚拟环境……",
   "Checkpoint1_5": "检查点 1.5：验证/安装依赖项……",
   "InstallDependencies_Starting": "[安装] 开始依赖项安装",
+  "InstallDependencies_JsonNotFound": "[错误] 未找到依赖项文件：{0}",
   "InstallDependencies_ProcessingRequirements": "处理需求文件：{0}",
   "InstallDependencies_AllDependenciesAlreadyInstalled": "所有依赖项均已安装，我们继续。",
   "InstallDependencies_AllDependenciesInstalled": "所有依赖项均已成功安装。",

@@ -11,6 +11,11 @@
     "type": "full"
   },
   {
+    "source": "Config",
+    "dest": "Config",
+    "type": "full"
+  },
+  {
     "source": "locale",
     "dest": "locale",
     "type": "full"
