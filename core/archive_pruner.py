@@ -134,6 +134,16 @@ def prune_with_confirmation(
 
     if needs_confirmation:
         print()
+        # Build reason string from active limits
+        reasons = []
+        if max_count is not None:
+            reasons.append(getattr(messages, "ARCHIVE_PruneReasonCount", "max {0} backups").format(max_count))
+        if max_size_mb is not None:
+            gb = max_size_mb / 1024
+            reasons.append(getattr(messages, "ARCHIVE_PruneReasonSize", "max {0:.1f} GB").format(gb))
+        if reasons:
+            reason_str = getattr(messages, "ARCHIVE_PruneReason", "Reason: {0}").format(", ".join(reasons))
+            print(Fore.YELLOW + reason_str + Style.RESET_ALL)
         print(Fore.YELLOW + messages.ARCHIVE_PruneWillDelete + Style.RESET_ALL)
         for p in to_delete:
             print(Fore.YELLOW + messages.ARCHIVE_PruneFolder.format(p.name) + Style.RESET_ALL)
