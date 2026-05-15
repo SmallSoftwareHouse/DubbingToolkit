@@ -1,4 +1,5 @@
 [Files]
+Source: "..\build_payload\Installation\*"; DestDir: "{app}\Installation"; Flags: recursesubdirs createallsubdirs ignoreversion
 Source: "..\build_payload\Tools\*"; DestDir: "{app}\Tools"; Flags: recursesubdirs createallsubdirs ignoreversion
 Source: "..\build_payload\core\*"; DestDir: "{app}\core"; Flags: recursesubdirs createallsubdirs ignoreversion
 Source: "..\build_payload\locale\*"; DestDir: "{app}\locale"; Flags: recursesubdirs createallsubdirs ignoreversion
@@ -6,6 +7,7 @@ Source: "..\build_payload\ps\*"; DestDir: "{app}\ps"; Flags: recursesubdirs crea
 Source: "..\build_payload\Scripts\*"; DestDir: "{app}\Scripts"; Flags: recursesubdirs createallsubdirs ignoreversion
 Source: "..\build_payload\Settings\*"; DestDir: "{app}\Settings"; Flags: recursesubdirs createallsubdirs ignoreversion
 Source: "..\build_payload\Docs\*"; DestDir: "{app}\Docs"; Flags: recursesubdirs createallsubdirs ignoreversion
+Source: "..\build_payload\voices\*"; DestDir: "{app}\voices"; Flags: recursesubdirs createallsubdirs ignoreversion
 Source: "..\build_payload\StartDubbing.bat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\build_payload\Readme.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "..\build_payload\Billing\tts_voices_cost.json"; DestDir: "{app}\Billing"; Flags: ignoreversion
