@@ -139,7 +139,8 @@ Write-Log "Checkpoint0"
 Write-Log "Checkpoint0Warning" "WARN"
 Write-Log "Checkpoint0Step1" "WARN"
 Write-Log "Checkpoint0Step2" "WARN"
-Write-Host -NoNewline "[WARN] $($Messages.Checkpoint0Step3)" -ForegroundColor Yellow
+Write-Log "Checkpoint0Step3" "WARN"
+Write-Host -NoNewline "[WARN] $($Messages.Checkpoint0Step4)" -ForegroundColor Yellow
 [void][System.Console]::ReadLine()
 
 # --------------------------------------------------
