@@ -43,6 +43,8 @@ DubbingToolkit/
 ├─ Installation/                  - Installazioni locali di Python utilizzate dal progetto.*
 │  ├─ Python310/                  - Installazione completa di Python 3.10 in cartella personalizzata, teoricamente portabile.
 │  ├─ Python311/                  - Installazione completa di Python 3.11 in cartella personalizzata, teoricamente portabile.
+├─ Config/                        - Configurazione di sistema dell'applicazione (non modificabile dall'utente).
+│  └─ dependencies.json           - Lista ordinata delle dipendenze Python: package, versione pinned, flags pip, note.
 ├─ installer/                     - Sistema di build e packaging del progetto per distribuzione.
 │  ├─ build_payload/              - Contenuto generato per il pacchetto finale (payload installazione).
 │  ├─ build.ps1                   - Script principale di build; crea il pacchetto del progetto secondo le regole definite.
@@ -114,7 +116,7 @@ DubbingToolkit/
 │  ├─ menu_voices.py                         - Gestione selezione e configurazione voci TTS.
 │  ├─ monitoraggio_consumo.py                - Monitoraggio consumo API e gestione costi.
 │  ├─ Regista.py                             - Coordinatore centrale del flusso operativo (orchestratore).
-│  ├─ requirements.txt                       - Dipendenze Python principali del progetto.
+│  ├─ requirements.txt                       - Dipendenze Python (solo riferimento storico; non più usato dall'installer).
 │  ├─ reset_env.ps1                          - Ripristino controllato dell’ambiente virtuale.
 │  ├─ segmentazione_avanzata.py              - Segmentazione avanzata (attualmente non implementato).
 │  ├─ settings_manager.py                    - Lettura, validazione e gestione configurazioni.
@@ -500,10 +502,14 @@ TTS — Robustezza e UX
 
 Runtime Dependencies
 ---------------------
-- ffmpeg 7.1.1: scaricato da GyanD/codexffmpeg GitHub Releases (formato .7z)
-- voices_output: scaricato da SmallSoftwareHouse/DubbingToolkit GitHub Releases (formato .7z)
+Scripts/RuntimeDependencies.ps1 esegue i seguenti check in ordine ad ogni avvio (saltati silenziosamente se già soddisfatti):
+1. Windows Long Paths: abilita LongPathsEnabled=1 nel registro (richiesto da pip per pacchetti con percorsi profondi). Non fatale.
+2. Visual C++ Redistributable 2015-2022 x64: richiesto da PyTorch per caricare le DLL native.
+   Scaricato da https://aka.ms/vs/17/release/vc_redist.x64.exe, installato silenzioso con UAC. Fatale.
+3. ffmpeg 7.1.1: scaricato da GyanD/codexffmpeg GitHub Releases (formato .7z). Fatale.
+4. voices_output: scaricato da SmallSoftwareHouse/DubbingToolkit GitHub Releases (formato .7z). Non fatale.
 - Estrazione: Tools/7zr.exe (bundled nel repo e nel payload installer)
-- Nessuna dipendenza da tool di sistema (tar.exe rimosso)
+- Verificato su VM Windows 10 e Windows 11 pulite
 
 Installer (InnoSetup)
 ----------------------
@@ -511,10 +517,13 @@ Installer (InnoSetup)
 - Asset release: setup.exe + voices_output.7z
 - Update checker: punta a Gist dubbing_toolkit_version.json (SmallSoftwareHouse)
 - Disinstallatore: elimina venv automaticamente; checkbox per credentials, Billing, Logs, Workspace
-- InstallDependencies.ps1: pre-installa setuptools==67.8.0 + wheel prima del loop principale
-- openai-whisper installato con --no-build-isolation (evita errore pkg_resources in env isolato)
+- InstallDependencies.ps1: legge Config/dependencies.json in ordine dichiarato; PyTorch variant risolto a runtime da CUDA detection
+- openai-whisper installato con --no-build-isolation (dichiarato nel JSON, non hardcoded)
 - simpleaudio disabilitato (richiede Visual C++ Build Tools, non usato nella pipeline)
 - ExtraDiskSpaceRequired=16106127360 (~15 GB) per mostrare spazio disco realistico all'utente
+- ReadyToUpdate: avvisa l'utente che le dipendenze Python verranno riscaricate (~8-10 GB)
+- [InstallDelete]: venv cancellata dal motore InnoSetup nativo (finestra reattiva durante upgrade)
+- WritePersistentSettings: scrive language_preset_from_installer=true, first_run=true, interface_lang
 
 ================================
 = SEZIONE 4 – Scripts Overview =
@@ -560,14 +569,6 @@ Nota generale
 ========================================
 = DA FARE
 ========================================
-
---- [ALTA PRIORITÀ] Aggiornamento InnoSetup per nuovo sistema settings e Workspace
-- Quando l’installer viene aggiornato, deve scrivere settings_persistent.json
-  con language_preset_from_installer=true e interface_lang al momento dell’installazione.
-- Senza questa modifica, Launcher.ps1 mostrerà il menu interattivo anche post-install.
-- Gli shortcut/link verso cartelle Workspace devono puntare a Workspace/projects/.
-  Valutare se rinominare il concetto in Links/ o Navigator/ per evitare conflitti con Workspace/ dati.
-- Nota: da fare contestualmente alla pubblicazione dell’installer; non blocca la versione standalone.
 
 --- Controllo avanzato della lingua (Whisper)
 - Attualmente la lingua viene rilevata automaticamente da Whisper senza vincoli o validazione della confidenza.
@@ -760,6 +761,35 @@ Nota generale
       effettivamente superato. Workflow menu: estrazione letta da project_info.json
       (struttura flat post-refactor); video esterno segnalato con "(esterno)".
       SESSIONE.md 2026-05-15.
+
+--- [COMPLETATO] Migrazione dipendenze: requirements.txt → Config/dependencies.json
+    → Config/dependencies.json: lista ordinata con package, versione pinned, flags pip, torch_variant, notes.
+      InstallDependencies.ps1 riscritto per leggere JSON e installare in ordine.
+      PyTorch variant risolto a runtime da CUDA detection.
+      SESSIONE.md 2026-05-16.
+
+--- [COMPLETATO] UX: antivirus checkpoint box, welcome box, hint nessun progetto
+    → Launcher.ps1: checkpoint 0 riscritto con box asterischi, tono trasparente, cursor inline.
+      Regista.py: welcome box al primo avvio (first_run flag), hint nessun progetto nel titolo menu.
+      Tutte le 8 lingue aggiornate. SESSIONE.md 2026-05-16.
+
+--- [COMPLETATO] Fix lock file PID reuse (falsi positivi)
+    → Launcher.ps1 → Test-LockAlive: confronto proc.StartTime con timestamp lock file.
+      SESSIONE.md 2026-05-16.
+
+--- [COMPLETATO] InnoSetup: upgrade senza finestra bloccata (venv cancellazione)
+    → [InstallDelete] section: venv gestita dal motore nativo InnoSetup con message pump attiva.
+      FillAppFolders: venv rimossa dal loop Pascal (evita doppia cancellazione).
+      SESSIONE.md 2026-05-16.
+
+--- [COMPLETATO] InnoSetup: settings_persistent.json scritto dall'installer
+    → WritePersistentSettings: language_preset_from_installer=true, first_run=true, interface_lang.
+      ReadyToUpdate: avviso re-download dipendenze (~8-10 GB). SESSIONE.md 2026-05-16.
+
+--- [COMPLETATO] RuntimeDependencies: Visual C++ Redistributable + Windows Long Paths
+    → Auto-install VC++ Redist da Microsoft (UAC) — fatale per PyTorch.
+      Auto-enable Long Paths nel registro (UAC elevation se necessario) — non fatale.
+      Verificato su VM Windows 10 e Windows 11 pulite. SESSIONE.md 2026-05-16.
 
 
 
