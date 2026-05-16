@@ -436,9 +436,11 @@ begin
   AppFolders.Add('locale');
   AppFolders.Add('ps');
   AppFolders.Add('Scripts');
+  AppFolders.Add('Config');
   AppFolders.Add('Settings');
   AppFolders.Add('Docs');
   AppFolders.Add('voices');
+  AppFolders.Add('venv');
 // ##CLEANUP_END##
 end;
 
