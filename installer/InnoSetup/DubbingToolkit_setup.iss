@@ -41,19 +41,19 @@ russian.NoProgramFiles=Dubbing Toolkit требует доступа для за
 
 ; --- [02.02] PRONTO PER INSTALLAZIONE / AGGIORNAMENTO ---
 english.ReadyToInstall=The program is ready to install.%n%nNote: on first launch the app will download required dependencies (~8-10 GB).%nAn internet connection and at least 15 GB of free disk space are needed.
-english.ReadyToUpdate=A previous version was detected. The program is ready to update.
+english.ReadyToUpdate=A previous version was detected. The program is ready to update.%n%nNote: Python dependencies will be re-downloaded.%nDownload required: ~8-10 GB.%nAn internet connection is required.
 italian.ReadyToInstall=Il programma è pronto per l'installazione.%n%nNota: al primo avvio l'app scaricherà le dipendenze necessarie (~8-10 GB).%nServono connessione internet attiva e almeno 15 GB liberi su disco.
-italian.ReadyToUpdate=È stata rilevata una versione precedente. Il programma è pronto per l'aggiornamento.
+italian.ReadyToUpdate=È stata rilevata una versione precedente. Il programma è pronto per l'aggiornamento.%n%nNota: le dipendenze Python verranno riscaricate.%nDownload richiesto: ~8-10 GB.%nServono connessione internet attiva.
 french.ReadyToInstall=Le programme est prêt à être installé.%n%nRemarque : au premier lancement, l'app téléchargera les dépendances requises (~8-10 Go).%nUne connexion internet et au moins 15 Go d'espace disque libre sont nécessaires.
-french.ReadyToUpdate=Une version précédente a été détectée. Le programme est prêt à être mis à jour.
+french.ReadyToUpdate=Une version précédente a été détectée. Le programme est prêt à être mis à jour.%n%nRemarque : les dépendances Python seront retéléchargées.%nTéléchargement requis : ~8-10 Go.%nUne connexion internet est nécessaire.
 german.ReadyToInstall=Das Programm ist zur Installation bereit.%n%nHinweis: Beim ersten Start lädt die App die erforderlichen Abhängigkeiten herunter (~8-10 GB).%nInternetverbindung und mindestens 15 GB freier Speicherplatz werden benötigt.
-german.ReadyToUpdate=Eine frühere Version wurde gefunden. Das Programm ist bereit für die Aktualisierung.
+german.ReadyToUpdate=Eine frühere Version wurde gefunden. Das Programm ist bereit für die Aktualisierung.%n%nHinweis: Python-Abhängigkeiten werden neu heruntergeladen.%nDownload erforderlich: ~8-10 GB.%nEine Internetverbindung wird benötigt.
 spanish.ReadyToInstall=El programa está listo para instalarse.%n%nNota: en el primer inicio, la app descargará las dependencias necesarias (~8-10 GB).%nSe necesita conexión a internet y al menos 15 GB de espacio libre en disco.
-spanish.ReadyToUpdate=Se detectó una versión anterior. El programa está listo para actualizarse.
+spanish.ReadyToUpdate=Se detectó una versión anterior. El programa está listo para actualizarse.%n%nNota: las dependencias de Python se volverán a descargar.%nDescarga requerida: ~8-10 GB.%nSe necesita conexión a internet.
 portuguese.ReadyToInstall=O programa está pronto para ser instalado.%n%nNota: na primeira execução, o app baixará as dependências necessárias (~8-10 GB).%nSão necessários conexão com a internet e pelo menos 15 GB de espaço livre em disco.
-portuguese.ReadyToUpdate=Uma versão anterior foi detectada. O programa está pronto para ser atualizado.
+portuguese.ReadyToUpdate=Uma versão anterior foi detectada. O programa está pronto para ser atualizado.%n%nNota: as dependências Python serão baixadas novamente.%nDownload necessário: ~8-10 GB.%nÉ necessária uma conexão com a internet.
 russian.ReadyToInstall=Программа готова к установке.%n%nПримечание: при первом запуске приложение загрузит необходимые зависимости (~8-10 ГБ).%nНужны подключение к интернету и не менее 15 ГБ свободного места на диске.
-russian.ReadyToUpdate=Обнаружена предыдущая версия. Программа готова к обновлению.
+russian.ReadyToUpdate=Обнаружена предыдущая версия. Программа готова к обновлению.%n%nПримечание: зависимости Python будут загружены повторно.%nОбъём загрузки: ~8-10 ГБ.%nНеобходимо подключение к интернету.
 
 ; --- [02.03] DIALOG DISINSTALLAZIONE CHECKBOX ---
 english.UninstallDataTitle=Data removal options
