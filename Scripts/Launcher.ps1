@@ -136,10 +136,26 @@ if ($LangPresetByInstaller) {
 # Checkpoint 0: Antivirus containment check
 # --------------------------------------------------
 Write-Log "Checkpoint0"
-Write-Log "Checkpoint0Warning" "WARN"
-Write-Log "Checkpoint0Step1" "WARN"
-Write-Log "Checkpoint0Step2" "WARN"
-Write-Log "Checkpoint0Step3" "WARN"
+# -- Box rendering --
+$borderLine = "*" * 60
+$titleText  = $Messages.Checkpoint0Title
+$innerWidth = 58
+$padTotal   = $innerWidth - $titleText.Length
+$padLeft    = [math]::Floor($padTotal / 2)
+$padRight   = $padTotal - $padLeft
+$titleLine  = "*" + (" " * $padLeft) + $titleText + (" " * $padRight) + "*"
+
+Write-Host ""
+Write-Host "[WARN] $borderLine" -ForegroundColor Yellow
+Write-Host "[WARN] $titleLine"  -ForegroundColor Yellow
+Write-Host "[WARN] $borderLine" -ForegroundColor Yellow
+
+$bodyLines = $Messages.Checkpoint0Body -split "`n"
+foreach ($line in $bodyLines) {
+    Write-Host "[WARN] $line" -ForegroundColor Yellow
+}
+
+Write-Host "[WARN] $borderLine" -ForegroundColor Yellow
 Write-Host -NoNewline "[WARN] $($Messages.Checkpoint0Step4)" -ForegroundColor Yellow
 [void][System.Console]::ReadLine()
 
