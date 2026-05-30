@@ -123,7 +123,7 @@ class InfoManager:
     # Video file section
     # ------------------------------------------------------------------
 
-    def update_video_file(self, path, durata_s=None, codec_video=None, frame_rate=None, risoluzione=None, source_mode=None):
+    def update_video_file(self, path, durata_s=None, codec_video=None, frame_rate=None, risoluzione=None, source_mode=None, original_source=None):
         path_resolved = str(Path(path).resolve())
         dimensione_MB = os.path.getsize(path) / (1024 * 1024) if os.path.exists(path) else 0
 
@@ -137,6 +137,9 @@ class InfoManager:
         })
         if source_mode is not None:
             self.data["video_file"]["source_mode"] = source_mode
+        # Record original path only when the file was imported (copy/move)
+        if original_source and source_mode in ("copy", "move"):
+            self.data["video_file"]["file_originale"] = str(Path(original_source).resolve())
 
         self.save_json()
 
@@ -233,7 +236,7 @@ class InfoManager:
     # Video analysis
     # ------------------------------------------------------------------
 
-    def analyze_video(self, video_path, ffprobe_path=None, source_mode=None):
+    def analyze_video(self, video_path, ffprobe_path=None, source_mode=None, original_source=None):
         video_path = str(Path(video_path).resolve())
         if not Path(video_path).exists():
             logging.warning(f"Video not found: {video_path}")
@@ -280,6 +283,7 @@ class InfoManager:
             frame_rate=frame_rate,
             risoluzione=risoluzione,
             source_mode=source_mode,
+            original_source=original_source,
         )
 
     # ------------------------------------------------------------------

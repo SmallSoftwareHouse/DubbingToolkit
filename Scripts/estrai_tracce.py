@@ -141,6 +141,7 @@ def estrai_tracce(messages, settings):
     # 2) Select video file (with import dialog for external files)
     # =========================================================
     video_file = None
+    original_video_path = None
     source_mode = "external"
     while True:
         raw_path = seleziona_file_video(messages, VIDEO_DIR)
@@ -148,6 +149,7 @@ def estrai_tracce(messages, settings):
             return
         final_path, source_mode = ask_import(raw_path, VIDEO_DIR, messages)
         if final_path is not None:
+            original_video_path = str(raw_path)
             video_file = str(final_path)
             break
         # user cancelled import — loop back to file selection
@@ -171,7 +173,7 @@ def estrai_tracce(messages, settings):
         settings=settings,
         note=""
     )
-    info_manager.analyze_video(video_file, FFPROBE_PATH, source_mode=source_mode)
+    info_manager.analyze_video(video_file, FFPROBE_PATH, source_mode=source_mode, original_source=original_video_path)
 
     # Reset track list before (re-)extraction
     info_manager.data["audio_tracce"] = []
