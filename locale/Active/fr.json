@@ -117,7 +117,7 @@
   "INFO_Progetto_autore": "Auteur",
   "INFO_Progetto_data_creazione": "Date de création",
   "INFO_Progetto_interface_lang": "Langue d'interface",
-  "INFO_Progetto_Transcript_Audio_Spoken_Lang": "Langue de l'audio",
+  "INFO_Progetto_Transcript_Audio_Spoken_Lang": "Langue de l'audio (défaut)",
   "INFO_Progetto_Transcript_Target_Lang": "Langue cible de transcription",
   "INFO_Progetto_Translation_Target_Lang": "Langue de traduction",
   "INFO_Progetto_Dubbing_Lang": "Langue de doublage",

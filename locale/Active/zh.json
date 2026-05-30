@@ -117,7 +117,7 @@
   "INFO_Progetto_autore": "作者",
   "INFO_Progetto_data_creazione": "创建日期",
   "INFO_Progetto_interface_lang": "界面语言",
-  "INFO_Progetto_Transcript_Audio_Spoken_Lang": "音频语言",
+  "INFO_Progetto_Transcript_Audio_Spoken_Lang": "音频语言（默认）",
   "INFO_Progetto_Transcript_Target_Lang": "目标转录语言",
   "INFO_Progetto_Translation_Target_Lang": "翻译语言",
   "INFO_Progetto_Dubbing_Lang": "配音语言",
