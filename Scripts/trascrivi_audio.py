@@ -438,7 +438,8 @@ def trascrivi_audio(messages, settings):
     })
 
     try:
-        InfoManager(ws.root).update_trascrizione(track_id, {
+        im = InfoManager(ws.root)
+        im.update_trascrizione(track_id, {
             "created_at":       _created_at,
             "whisper_model":    model_choice,
             "spoken_lang":      selected_lang,
@@ -447,6 +448,7 @@ def trascrivi_audio(messages, settings):
             "audio_duration_s": audio_duration,
             "segments_count":   len(result_raw["segments"]),
         })
+        im.generate_info_file(messages)
     except Exception:
         pass
 

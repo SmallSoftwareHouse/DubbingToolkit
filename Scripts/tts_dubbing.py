@@ -94,7 +94,8 @@ def tts_dubbing(config, settings=None, messages=None):
     })
 
     try:
-        InfoManager(ws.root).update_tts(track_id, {
+        im = InfoManager(ws.root)
+        im.update_tts(track_id, {
             "created_at":      _created_at,
             "provider":        selected_engine,
             "voice":           voice_name,
@@ -102,6 +103,7 @@ def tts_dubbing(config, settings=None, messages=None):
             "output_format":   output_format,
             "characters_used": totale_caratteri,
         })
+        im.generate_info_file(messages)
     except Exception:
         pass
 

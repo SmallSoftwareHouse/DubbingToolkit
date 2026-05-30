@@ -321,13 +321,15 @@ def traduci_testo(messages, settings):
     })
 
     try:
-        InfoManager(ws.root).update_traduzione(track_id, {
+        im = InfoManager(ws.root)
+        im.update_traduzione(track_id, {
             "created_at":        _created_at,
             "translation_model": model_name,
             "source_lang":       src_lang,
             "target_lang":       tgt_lang,
             "segments_translated": _segments_translated,
         })
+        im.generate_info_file(messages)
     except Exception:
         pass
 
