@@ -44,7 +44,7 @@ def seleziona_lingua(messages, settings=None, context="translation_source", defa
     else:
         helsinki_langs = {}
         if context in ("translation_source", "translation_target"):
-            print(Fore.RED + "Warning: file lingue Helsinki non trovato, nessun filtro applicato" + Style.RESET_ALL)
+            print(Fore.RED + getattr(messages, "Helsinki_FileNotFound", "Warning: Helsinki language file not found, no filter applied") + Style.RESET_ALL)
 
     # Filtra solo per menu di traduzione
     if context in ("translation_source", "translation_target") and helsinki_langs:

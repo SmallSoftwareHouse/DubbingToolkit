@@ -128,12 +128,6 @@ def seleziona_lingua_tts(messages):
     # 1.7 Output finale
     # --------------------------
     print(Fore.GREEN + messages.menu_lingue_TTS_selected_language.format(lang=selected_lang) + Style.RESET_ALL)
-    
-    print(Fore.MAGENTA + "----- DEBUG TTS LANGUAGE -----" + Style.RESET_ALL)
-    print(Fore.MAGENTA + f"[DEBUG] selected_lang: {selected_lang}" + Style.RESET_ALL)
-    print(Fore.MAGENTA + f"[DEBUG] type: {type(selected_lang)}" + Style.RESET_ALL)
-    print(Fore.MAGENTA + "------------------------------" + Style.RESET_ALL)
-    
     return selected_lang
 
 

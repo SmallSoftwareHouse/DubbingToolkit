@@ -92,9 +92,6 @@ class ConsumoTTS:
             prev_count = self.dati[motore].get(mese_corrente, 0)
             new_count = prev_count + n
 
-            # Debug compatto come richiesto
-            print(f"DEBUG [{motore}] ({mese_corrente}) Caratteri: ora={prev_count} | nuovi={n} | Tot={new_count}")
-
             self.dati[motore][mese_corrente] = new_count
             self.salva()
 
@@ -135,7 +132,6 @@ class ConsumoTTS:
             mesi_presenti = list(self.dati[motore_attuale].keys())
             for mese in mesi_presenti:
                 if mese not in mesi_necessari:
-                    print(f"DEBUG: elimino mese vecchio {mese} per motore {motore_attuale}")
                     del self.dati[motore_attuale][mese]
 
     def stampa_storico(self):

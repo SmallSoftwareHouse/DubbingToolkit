@@ -164,12 +164,17 @@ def print_header(language, provider, gender, voices):
     az_used, az_free = usage["azure"]
     go_used, go_free = usage["google"]
 
+    all_label  = getattr(messages, "menu_voices_header_all", "All")
     print("=" * 60)
-    print(f"Selezione voci: {total} trovate per {language}")
-    print(f"Voci Azure: {azure_count} | Voci Google: {google_count}")
-    print(f"Provider: {provider or 'Tutti'} | Genere: {gender or 'Tutti'}")
-    print(f"Azure usato: {az_used} / {az_free} gratis")
-    print(f"Google usato: {go_used} / {go_free} gratis")
+    print(getattr(messages, "menu_voices_header_found", "{0} voices found for {1}").format(total, language))
+    print(getattr(messages, "menu_voices_header_azure", "Azure: {0}").format(azure_count) +
+          " | " +
+          getattr(messages, "menu_voices_header_google", "Google: {0}").format(google_count))
+    print(getattr(messages, "menu_voices_header_provider", "Provider: {0}").format(provider or all_label) +
+          " | " +
+          getattr(messages, "menu_voices_header_gender", "Gender: {0}").format(gender or all_label))
+    print(getattr(messages, "menu_voices_header_used", "{0} used / {1} free").format(az_used, az_free) + " [Azure]")
+    print(getattr(messages, "menu_voices_header_used", "{0} used / {1} free").format(go_used, go_free) + " [Google]")
     print("=" * 60)
     
 '''

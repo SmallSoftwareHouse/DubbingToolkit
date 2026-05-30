@@ -67,7 +67,7 @@ def tts_dubbing(config, settings=None, messages=None):
             output_format=output_format
         )
     else:
-        return "[ERROR] Provider non valido o assente"
+        return "[ERROR] Invalid or missing TTS provider"
 
     # Aggiornamento consumo
     totale_caratteri = utils_tts.count_characters(file_input)

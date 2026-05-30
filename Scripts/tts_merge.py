@@ -27,7 +27,7 @@ def merge_audio_files(input_dir, output_file, output_format="wav"):
     skipped = []
     total_files = len(audio_files)
     for i_file, audio_file in enumerate(audio_files):
-        print(f"\r[{i_file + 1}/{total_files}] Merging...", end="", flush=True)
+        print(f"\r[{i_file + 1}/{total_files}] Merging audio...", end="", flush=True)
         if audio_file.stat().st_size == 0:
             skipped.append(audio_file.name)
             continue
@@ -35,7 +35,7 @@ def merge_audio_files(input_dir, output_file, output_format="wav"):
             seg = AudioSegment.from_file(audio_file, format=output_format)
         except Exception as e:
             skipped.append(audio_file.name)
-            print(f"[TTS Merge] WARN: saltato file corrotto {audio_file.name}: {e}")
+            print(f"[TTS Merge] WARN: skipped corrupted file {audio_file.name}: {e}")
             continue
         combined = seg if combined is None else combined + seg
 
@@ -45,10 +45,10 @@ def merge_audio_files(input_dir, output_file, output_format="wav"):
         raise ValueError(f"Nessun file {output_format} valido trovato in {input_dir}")
 
     if skipped:
-        print(f"[TTS Merge] WARN: {len(skipped)} file saltati (corrotti/vuoti): {skipped}")
+        print(f"[TTS Merge] WARN: {len(skipped)} file(s) skipped (corrupted/empty): {skipped}")
 
     combined.export(output_file, format=output_format)
-    print(f"[TTS Merge] File concatenato creato: {output_file}")
+    print(f"[TTS Merge] Output file created: {output_file}")
 
 # =========================================================
 # BLOCCO 5 – Main standalone CLI

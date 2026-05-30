@@ -139,7 +139,7 @@ def aggiorna_motore_tts(messages):
     active_providers = get_active_providers()
 
     if not active_providers:
-        print(Fore.YELLOW + "[WARNING] Nessun provider TTS attivo." + Style.RESET_ALL)
+        print(Fore.YELLOW + getattr(messages, "DUBBING_NoActiveProvider", "No TTS provider active.") + Style.RESET_ALL)
         input(messages.DUBBING_PromptContinue)
         return
 

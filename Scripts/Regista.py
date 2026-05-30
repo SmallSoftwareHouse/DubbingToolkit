@@ -93,17 +93,16 @@ def scegli_motore_tts(messages):
     consumo_google = ConsumoTTS(motore="google")
     consumo_azure = ConsumoTTS(motore="azure")
 
+    chars_fmt = getattr(messages, "RegistaTTSCharsInfo", "{0}: {1} characters ({2:.1f}% of free tier)")
     print(Fore.YELLOW + "\n" + messages.RegistaTTSConsumption)
-    print(f"Google: {consumo_google.dati['google'][consumo_google.data_oggi]} caratteri "
-          f"({consumo_google.percentuale_consumo():.1f}% franchigia)")
-    print(f"Azure: {consumo_azure.dati['azure'][consumo_azure.data_oggi]} caratteri "
-          f"({consumo_azure.percentuale_consumo():.1f}% franchigia)" + Style.RESET_ALL)
+    print(chars_fmt.format("Google", consumo_google.dati['google'][consumo_google.data_oggi], consumo_google.percentuale_consumo()))
+    print(chars_fmt.format("Azure",  consumo_azure.dati['azure'][consumo_azure.data_oggi],   consumo_azure.percentuale_consumo()) + Style.RESET_ALL)
 
     while True:
         print("\n" + messages.RegistaTTSSelect)
         print(messages.RegistaTTSGoogle)
         print(messages.RegistaTTSAzure)
-        scelta = input("Scelta (1 o 2): ").strip()
+        scelta = input(getattr(messages, "RegistaTTSChoicePrompt", "Choice (1 or 2): ")).strip()
         if scelta == "1":
             return "google"
         elif scelta == "2":
@@ -523,7 +522,7 @@ def gestione_progetti(messages, ws, settings=None):
             except (ValueError, WorkspaceError) as e:
                 print(Fore.RED + getattr(messages, "ProgettiError", "Error: {0}").format(e) + Style.RESET_ALL)
             except PermissionError:
-                print(Fore.RED + "Cannot delete: folder is open in Explorer or locked by another process. Close it and try again." + Style.RESET_ALL)
+                print(Fore.RED + getattr(messages, "ProgettiPermErrorDelete", "Cannot delete: folder is open or locked. Close it and try again.") + Style.RESET_ALL)
 
         elif scelta == "4":
             if not projects:
@@ -543,7 +542,8 @@ def gestione_progetti(messages, ws, settings=None):
                     source = projects[idx]
                     suggested = source + "_copy"
                     prompt = getattr(messages, "ProgettiDuplicatePrompt", "New project name:")
-                    raw = input(f"{prompt} (Invio: \"{suggested}\"): ").strip()
+                    enter_hint = getattr(messages, "ProgettiEnterHint", "(Enter: \"{0}\"): ").format(suggested)
+                    raw = input(f"{prompt} {enter_hint}").strip()
                     dest = raw if raw else suggested
                     ws_dup = WorkspaceManager.duplicate_project(source, dest)
                     _init_project_info(ws_dup, dest, settings, messages)
@@ -553,7 +553,7 @@ def gestione_progetti(messages, ws, settings=None):
             except (ValueError, WorkspaceError) as e:
                 print(Fore.RED + getattr(messages, "ProgettiError", "Error: {0}").format(e) + Style.RESET_ALL)
             except PermissionError:
-                print(Fore.RED + "Cannot duplicate: source folder is open in Explorer or locked by another process. Close it and try again." + Style.RESET_ALL)
+                print(Fore.RED + getattr(messages, "ProgettiPermErrorDuplicate", "Cannot duplicate: source folder is open or locked. Close it and try again.") + Style.RESET_ALL)
 
         elif scelta == "5":
             if not projects:
@@ -583,7 +583,7 @@ def gestione_progetti(messages, ws, settings=None):
             except (ValueError, WorkspaceError) as e:
                 print(Fore.RED + getattr(messages, "ProgettiError", "Error: {0}").format(e) + Style.RESET_ALL)
             except PermissionError:
-                print(Fore.RED + "Cannot rename: folder is open in Explorer or locked by another process. Close it and try again." + Style.RESET_ALL)
+                print(Fore.RED + getattr(messages, "ProgettiPermErrorRename", "Cannot rename: folder is open or locked. Close it and try again.") + Style.RESET_ALL)
 
         elif scelta == "6":
             if not projects:
