@@ -72,6 +72,7 @@
   "RegistaChoiceInvalid": "选择无效，请重试。",
   "RegistaExit": "退出程序。",
   "RegistaMenuOption4Disabled": "\n【警告！】此选项不可用：未激活任何 TTS 提供商。\n【警告！】要使用配音功能，请在凭据文件夹中配置您的 API 密钥\n【警告！】（Google 或 Azure）\n",
+  "RegistaMenuOptionDisabled": "已禁用",
   "RegistaMenuOption5Disabled": "[!] 此选项尚待开发，请稍候……",
   "RegistaTTSActive": "TTS 配音功能已启用",
   "RegistaTTSProviders": "可用供应商：",

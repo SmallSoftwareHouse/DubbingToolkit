@@ -72,6 +72,7 @@
   "RegistaChoiceInvalid": "Scelta non valida, riprova.",
   "RegistaExit": "Uscita dal programma.",
   "RegistaMenuOption4Disabled": "\n[WARNING!] Opzione non disponibile: nessun provider TTS attivo.\n[WARNING!] Per utilizzare il doppiaggio, configura le tue API key\n[WARNING!] (Google o Azure) nella cartella credentials.\n",
+  "RegistaMenuOptionDisabled": "Disabilitato",
   "RegistaMenuOption5Disabled": "[!] Opzione non ancora disponibile perche in fase di sviluppo..Attendere prego....",
   "RegistaTTSActive": "Doppiaggio TTS attivo",
   "RegistaTTSProviders": "Provider disponibili:",

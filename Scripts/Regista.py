@@ -285,7 +285,7 @@ def menu(messages, tts_enabled):
     if tts_enabled:
         print(messages.RegistaMenuOption4)
     else:
-        print(Fore.LIGHTBLACK_EX + messages.RegistaMenuOption4 + " (Disabilitato)" + Style.RESET_ALL)
+        print(Fore.LIGHTBLACK_EX + messages.RegistaMenuOption4 + " (" + getattr(messages, 'RegistaMenuOptionDisabled', 'Disabled') + ")" + Style.RESET_ALL)
 
     print("-"*28)
     print(messages.RegistaMenuOption8)

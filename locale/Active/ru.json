@@ -72,6 +72,7 @@
   "RegistaChoiceInvalid": "Неверный выбор, попробуйте еще раз.",
   "RegistaExit": "Выйти из программы.",
   "RegistaMenuOption4Disabled": "\n[ВНИМАНИЕ!] Опция недоступна: нет активного поставщика TTS.\n[ВНИМАНИЕ!] Чтобы использовать озвучку, настройте ключи API\n[ВНИМАНИЕ!] (Google или Azure) в папке учетных данных.\n",
+  "RegistaMenuOptionDisabled": "Отключено",
   "RegistaMenuOption5Disabled": "[!] Эта опция пока недоступна, так как находится в разработке. Пожалуйста, подождите...",
   "RegistaTTSActive": "Озвучка TTS активна",
   "RegistaTTSProviders": "Доступные поставщики:",

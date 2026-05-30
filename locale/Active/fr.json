@@ -72,6 +72,7 @@
   "RegistaChoiceInvalid": "Choix invalide, veuillez réessayer.",
   "RegistaExit": "Quitter le programme.",
   "RegistaMenuOption4Disabled": "\n[AVERTISSEMENT !] Option indisponible : aucun fournisseur de synthèse vocale n'est actif.\n[AVERTISSEMENT !] Pour utiliser le doublage, configurez vos clés API\n[AVERTISSEMENT !] (Google ou Azure) dans le dossier des identifiants.\n",
+  "RegistaMenuOptionDisabled": "Désactivé",
   "RegistaMenuOption5Disabled": "[!] Cette option n'est pas encore disponible car elle est en cours de développement. Veuillez patienter...",
   "RegistaTTSActive": "Doublage TTS actif",
   "RegistaTTSProviders": "Fournisseurs disponibles :",

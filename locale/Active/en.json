@@ -72,6 +72,7 @@
   "RegistaChoiceInvalid": "Invalid choice, try again.",
   "RegistaExit": "Exiting the program.",
   "RegistaMenuOption4Disabled": "\n[WARNING!] Option unavailable: no TTS provider active.\n[WARNING!] To use dubbing, configure your API keys\n[WARNING!] (Google or Azure) in the credentials folder.\n",
+  "RegistaMenuOptionDisabled": "Disabled",
   "RegistaMenuOption5Disabled": "[!] Option not yet available, under development. Please wait....",
   "RegistaTTSActive": "TTS dubbing active",
   "RegistaTTSProviders": "Available providers:",

@@ -72,6 +72,7 @@
   "RegistaChoiceInvalid": "Ungültige Auswahl, bitte versuchen Sie es erneut.",
   "RegistaExit": "Programm beenden.",
   "RegistaMenuOption4Disabled": "\n[WARNUNG!] Option nicht verfügbar: kein TTS-Anbieter aktiv.\n[WARNUNG!] Um Synchronisation zu nutzen, konfigurieren Sie Ihre API-Schlüssel\n[WARNUNG!] (Google oder Azure) im Ordner Anmeldedaten.\n",
+  "RegistaMenuOptionDisabled": "Deaktiviert",
   "RegistaMenuOption5Disabled": "[!] Diese Option ist noch nicht verfügbar, da sie sich in der Entwicklung befindet. Bitte warten Sie...",
   "RegistaTTSActive": "TTS-Synchronisation aktiv",
   "RegistaTTSProviders": "Verfügbare Anbieter:",
