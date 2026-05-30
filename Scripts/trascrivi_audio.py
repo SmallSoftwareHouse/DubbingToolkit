@@ -312,16 +312,19 @@ def trascrivi_audio(messages, settings):
         selected_name = getattr(messages, f"LANG_{selected_lang}", selected_lang)
         print(Fore.YELLOW + messages.TRANSCR_lang_mismatch_alert.format(
             manual=selected_name, detected=detected_name) + Style.RESET_ALL)
-        confirm_prompt = f"{messages.TRANSCR_confirm_transcription_prompt} ({messages.YES_SHORT}/{messages.NO_SHORT}): "
-        confirm = input(Fore.YELLOW + confirm_prompt + Style.RESET_ALL).strip().lower()
-        if not confirm:
-            confirm = messages.YES_SHORT.lower()
-        if confirm not in [messages.YES_SHORT.lower(), messages.YES_FULL.lower()]:
-            print(Fore.YELLOW + messages.TRANSCR_transcription_cancelled + Style.RESET_ALL)
-            logger.info("trascrivi_audio", "trascrivi_audio", "Transcription cancelled by user",
-                        context={"reason": "language_mismatch_rejected",
-                                 "selected_lang": selected_lang, "detected_lang": detected_lang})
-            return
+        confirm_prompt = getattr(messages, "TRANSCR_lang_mismatch_prompt",
+                                 "Use detected language {detected}? (Enter/yes = detected, no = manual {manual}): ")
+        confirm = input(Fore.YELLOW + confirm_prompt.format(
+            detected=detected_name, manual=selected_name) + Style.RESET_ALL).strip().lower()
+        if not confirm or confirm in [messages.YES_SHORT.lower(), messages.YES_FULL.lower()]:
+            # Default: use detected language
+            selected_lang = detected_lang
+            print(Fore.CYAN + getattr(messages, "TRANSCR_using_detected_lang",
+                  "Using detected language: {lang}").format(lang=detected_name) + Style.RESET_ALL)
+        else:
+            # User forced manual language
+            print(Fore.CYAN + getattr(messages, "TRANSCR_using_manual_lang",
+                  "Using manually selected language: {lang}").format(lang=selected_name) + Style.RESET_ALL)
 
     # 2.9) Prepare output directory
     audio_filename = audio_file.stem
