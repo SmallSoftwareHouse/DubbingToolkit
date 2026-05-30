@@ -82,6 +82,7 @@ SESSIONE.md
 Test/
 installer/
 voices/
+dev/
 
 # Settings locali (specifici della macchina, non versionati)
 Settings/settings.json
