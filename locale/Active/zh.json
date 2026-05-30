@@ -144,6 +144,7 @@
   "INFO_Audio_canali": "声道",
   "INFO_Audio_sample_rate_hz": "采样率（赫兹）",
   "INFO_Audio_file_destinazione": "目标文件",
+  "INFO_Audio_track_id": "音轨 ID",
   "INFO_Transcript": "=== 转录 ===",
   "INFO_Fallback_RAW": "缺少原始 SRT 文件",
   "INFO_Fallback_SEGMENTED": "缺少分段式 SRT 文件",

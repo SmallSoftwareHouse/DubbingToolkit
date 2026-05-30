@@ -144,6 +144,7 @@
   "INFO_Audio_canali": "Canali",
   "INFO_Audio_sample_rate_hz": "Sample Rate (Hz)",
   "INFO_Audio_file_destinazione": "File Destinazione",
+  "INFO_Audio_track_id": "ID Traccia",
   "INFO_Transcript": "=== TRASCRIZIONE ===",
   "INFO_Fallback_RAW": "File RAW SRT mancante",
   "INFO_Fallback_SEGMENTED": "File SEGMENTED SRT mancante",

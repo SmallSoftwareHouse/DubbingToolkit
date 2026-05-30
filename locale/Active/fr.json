@@ -144,6 +144,7 @@
   "INFO_Audio_canali": "Canaux",
   "INFO_Audio_sample_rate_hz": "Fréquence d'échantillonnage (Hz)",
   "INFO_Audio_file_destinazione": "Fichier de destination",
+  "INFO_Audio_track_id": "ID de piste",
   "INFO_Transcript": "=== TRANSCRIPTION ===",
   "INFO_Fallback_RAW": "Fichier SRT brut manquant",
   "INFO_Fallback_SEGMENTED": "Fichier SRT segmenté manquant",

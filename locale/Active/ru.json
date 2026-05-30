@@ -144,6 +144,7 @@
   "INFO_Audio_canali": "Каналы",
   "INFO_Audio_sample_rate_hz": "Частота дискретизации (Гц)",
   "INFO_Audio_file_destinazione": "Файл назначения",
+  "INFO_Audio_track_id": "ID дорожки",
   "INFO_Transcript": "=== ТРАНСКРИПЦИЯ ===",
   "INFO_Fallback_RAW": "Отсутствует файл RAW SRT",
   "INFO_Fallback_SEGMENTED": "Отсутствует сегментированный файл SRT.",
