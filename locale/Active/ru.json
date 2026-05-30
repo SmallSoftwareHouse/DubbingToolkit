@@ -217,7 +217,7 @@
   "TRANSCR_lang_confidence_very_poor": "Очень неопределённо",
   "TRANSCR_lang_quick_eval": "Краткие оценки:",
   "TRANSCR_confirm_transcription_prompt": "Вы хотите продолжить транскрипцию?",
-  "TRANSCR_lang_mismatch_alert": "Предупреждение: язык выбран вручную: {manual}, язык определен автоматически: {detected}.",
+  "TRANSCR_lang_mismatch_alert": "Предупреждение: язык выбран вручную: {manual}, язык определен автоматически: {detected}.\nПри подтверждении будет использован язык, выбранный вручную: {manual}.",
   "TRANSCR_lang_match": "Выбранный и обнаруженный языки совпадают. Приступаю к транскрипции...",
   "TRANSCR_transcribing_raw": "Транскрипция необработанного аудиофайла: {file}...",
   "TRANSCR_file_dialog_title": "Выберите аудиофайл для транскрипции.",

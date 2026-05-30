@@ -217,7 +217,7 @@
   "TRANSCR_lang_confidence_very_poor": "Muito incerto",
   "TRANSCR_lang_quick_eval": "Avaliações rápidas:",
   "TRANSCR_confirm_transcription_prompt": "Deseja continuar com a transcrição?",
-  "TRANSCR_lang_mismatch_alert": "Aviso: idioma selecionado manualmente: {manual}, idioma detectado automaticamente: {detected}.",
+  "TRANSCR_lang_mismatch_alert": "Aviso: idioma selecionado manualmente: {manual}, idioma detectado automaticamente: {detected}.\nSe confirmar, o idioma selecionado manualmente será usado: {manual}.",
   "TRANSCR_lang_match": "O idioma selecionado e o detectado coincidem. Prosseguindo com a transcrição...",
   "TRANSCR_transcribing_raw": "Transcrevendo arquivo de áudio bruto (não segmentado): {file}...",
   "TRANSCR_file_dialog_title": "Selecione o arquivo de áudio a transcrever.",
