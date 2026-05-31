@@ -60,9 +60,15 @@ Full documentation is available in `Docs/` in all 8 supported languages.
 
 ---
 
+## Download
+
+Download the installer from [GitHub Releases](https://github.com/SmallSoftwareHouse/DubbingToolkit/releases/latest).
+
+---
+
 ## Project status
 
-**Alpha** — Core pipeline is functional end-to-end. Some stages require manual intervention (file review, audio assembly). Advanced features (subtitle export, pivot translation, post-processing) are planned for future releases.
+**v0.1** — Core pipeline is functional end-to-end on Windows 10 and Windows 11. Some stages require manual intervention (file review between transcription and translation). Advanced features (subtitle export, pivot translation, post-processing) are planned for future releases.
 
 ---
 
