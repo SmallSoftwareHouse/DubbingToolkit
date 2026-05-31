@@ -29,7 +29,7 @@ Le processus comprend 4 étapes. Chaque étape peut être exécutée individuell
 | 3 | Traduction | `Workspace/projects/{nom}/translated/current/` |
 | 4 | Synthèse TTS | `Workspace/projects/{nom}/dubbed/current/` |
 
-> **Important :** une révision manuelle est recommandée après la transcription et après la traduction. Les corrections permettent d'améliorer la qualité de l'audio final.
+> **Important :** une révision manuelle est recommandée après la transcription et après la traduction. Les corrections permettent d'améliorer la qualité de l'audio final et de gérer les éventuelles incohérences avec le rythme du discours original.
 
 ---
 
@@ -76,7 +76,7 @@ Si la paire de langues directe n'est pas disponible, la traduction pivot via l'a
 
 ---
 
-## Étape 4 — TTS
+## Étape 4 — Synthèse vocale (TTS)
 
 Le texte traduit est synthétisé segment par segment via le fournisseur TTS sélectionné. Les segments sont ensuite fusionnés dans le fichier audio final, enregistré dans `Workspace/projects/{nom}/dubbed/current/`.
 
@@ -125,102 +125,9 @@ Vous pouvez ouvrir le dossier d'un projet directement dans l'Explorateur pour in
 
 - Utilisez des noms de projet et de fichier courts sans espaces ni caractères spéciaux pour éviter les problèmes de chemins.
 - Les fichiers dans `Workspace/projects/{nom}/video_input/` ne sont jamais modifiés par le système.
-- Chaque étape génère des métadonnées (fichiers `.json` ou `_info.txt`) : utiles pour suivre la progression ou diagnostiquer les problèmes.
+- Chaque étape génère des métadonnées (fichiers `.json`) : utiles pour suivre la progression ou diagnostiquer les problèmes.
 - Si le processus est interrompu, vous pouvez reprendre à partir de l'étape suivante en utilisant les fichiers dans les dossiers de sortie intermédiaires.
 - Les fichiers traités à chaque étape sont automatiquement archivés dans le dossier `archive/` de cette étape pour préserver l'historique.
-
----
-
-## Démarrage du projet
-
-Double-cliquer sur `StartDubbing.bat`. Le projet démarre et présente l'interface principale. Au premier démarrage, toutes les dépendances nécessaires seront installées automatiquement.
-
----
-
-## Flux opérationnel
-
-Le processus se déroule en 4 étapes. Chaque étape peut être exécutée individuellement ou dans le cadre du flux complet.
-
-| Étape | Opération              | Sortie              |
-|-------|------------------------|---------------------|
-| 1     | Extraction audio       | `Audio_Extracted/`  |
-| 2     | Transcription          | `Transcripts/`      |
-| 3     | Traduction             | `Translated/`       |
-| 4     | Synthèse vocale (TTS)  | `Dubbed/`           |
-
-> **Important :** après la transcription et après la traduction, une vérification manuelle du texte généré est recommandée. Les corrections permettent d'améliorer la qualité de l'audio final et de gérer les éventuelles incohérences avec le rythme du discours original. Un système automatique de vérification de la cohérence entre le texte et les timecodes audio sera disponible dans une version future.
-
----
-
-## Préparation des entrées
-
-### Entrée vidéo
-
-Il est possible de placer les fichiers vidéo dans le dossier `Video_Input/` ou de les sélectionner manuellement depuis l'interface.
-
-Formats supportés : ceux gérés par ffmpeg (mp4, mkv, avi, mov, etc.).
-
-### Entrée audio directe
-
-Si l'audio extrait est déjà disponible, il est possible de le placer dans le dossier `Audio_Input/` ou de le sélectionner manuellement. Dans ce cas, l'Étape 1 — Extraction audio peut être ignorée.
-
----
-
-## Étape 1 — Extraction audio
-
-Le système extrait les pistes audio de la vidéo via ffmpeg. Pour chaque fichier traité, un sous-dossier est automatiquement créé dans `Audio_Extracted/`, contenant les fichiers audio extraits et un fichier `_info.txt` avec les métadonnées de l'extraction.
-
----
-
-## Étape 2 — Transcription
-
-L'audio est transcrit au format SRT. La langue du discours est détectée automatiquement et peut être modifiée depuis le menu avant de lancer la transcription. Le résultat est sauvegardé dans `Transcripts/`.
-
-> **Conseil :** avant de procéder à la traduction, vérifier et corriger le texte transcrit. Les erreurs à cette étape se répercutent sur toutes les étapes suivantes.
-
----
-
-## Étape 3 — Traduction
-
-Le fichier SRT transcrit est traduit dans la langue cible. La traduction s'effectue entièrement en local. Les modèles nécessaires sont téléchargés automatiquement à la première exécution pour chaque paire de langues. Le résultat est sauvegardé dans `Translated/`.
-
-Si la paire de langues directe n'est pas disponible, une traduction pivot via l'anglais comme langue intermédiaire est prévue dans une version future.
-
-> **Conseil :** vérifier le texte traduit avant de lancer la synthèse. Les corrections manuelles permettent de gérer les éventuelles incohérences avec le rythme du discours original.
-
----
-
-## Étape 4 — Synthèse vocale (TTS)
-
-Le texte traduit est synthétisé vocalement, segment par segment, via le fournisseur TTS sélectionné. Les segments sont ensuite assemblés dans le fichier audio final, sauvegardé dans `Dubbed/`.
-
-### Fournisseurs TTS
-
-Le système supporte actuellement deux fournisseurs :
-
-- **Azure Cognitive Services Speech** — service TTS cloud de Microsoft
-- **Google Cloud Text-to-Speech** — service TTS cloud de Google
-
-Le fournisseur et la voix se sélectionnent directement depuis le menu TTS. Le système inclut une fonction dédiée pour écouter les échantillons audio des voix disponibles avant de lancer la synthèse.
-
-### Suivi des coûts
-
-Au démarrage du module TTS, une consommation estimée est automatiquement présentée. Pour vérifier la consommation réelle, consulter directement le panneau de son fournisseur.
-
----
-
-## Langue de l'interface
-
-La langue de l'interface se sélectionne au démarrage et peut être modifiée à tout moment depuis le menu des paramètres sans redémarrer le projet.
-
----
-
-## Conseils opérationnels
-
-- Utiliser des noms de fichiers courts, sans espaces ni caractères spéciaux, pour éviter les problèmes de chemins.
-- Les fichiers dans `Video_Input/` ne sont jamais modifiés par le système.
-- Chaque étape génère un fichier `_info.txt` avec les métadonnées : utile pour suivre l'état d'avancement ou diagnostiquer des problèmes.
-- En cas d'interruption du processus, il est possible de reprendre depuis l'étape suivant celle déjà complétée, en utilisant les fichiers dans les dossiers de sortie intermédiaires.
 
 ---
 
@@ -240,8 +147,8 @@ Si des erreurs se sont produites pendant la session, l'application demandera à 
 
 ### Fonctionnement
 
-1. Un fichier ZIP est créé dans `Logs/` contenant les journaux des sessions récentes
-2. Le dossier `Logs/` s'ouvre dans l'Explorateur avec le fichier mis en évidence
+1. Un fichier ZIP est créé dans `Logs/reports/` contenant les journaux des sessions récentes
+2. Le dossier `Logs/reports/` s'ouvre dans l'Explorateur avec le fichier mis en évidence
 3. Le client de messagerie par défaut s'ouvre avec l'objet et le corps pré-remplis
 4. Joindre le fichier ZIP à l'e-mail avant de l'envoyer
 

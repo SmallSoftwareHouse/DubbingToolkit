@@ -125,7 +125,7 @@ Puedes abrir la carpeta de un proyecto directamente en Explorer para inspecciona
 
 - Usa nombres cortos de proyecto y archivo sin espacios ni caracteres especiales para evitar problemas de rutas.
 - Los archivos en `Workspace/projects/{nombre}/video_input/` nunca se modifican por el sistema.
-- Cada fase genera metadatos (archivos `.json` o `_info.txt`): útiles para hacer seguimiento del progreso o diagnosticar problemas.
+- Cada fase genera metadatos (archivos `.json`): útiles para hacer seguimiento del progreso o diagnosticar problemas.
 - Si se interrumpe el proceso, puedes reanudar desde la siguiente fase usando los archivos en las carpetas de salida intermedia.
 - Los archivos procesados en cada fase se archivan automáticamente en la carpeta `archive/` de esa fase para preservar el historial.
 
@@ -147,8 +147,8 @@ Si se produjeron errores durante la sesión, la aplicación preguntará al salir
 
 ### Cómo funciona
 
-1. Se crea un archivo ZIP en `Logs/` con los registros de sesiones recientes
-2. La carpeta `Logs/` se abre en el Explorador con el archivo resaltado
+1. Se crea un archivo ZIP en `Logs/reports/` con los registros de sesiones recientes
+2. La carpeta `Logs/reports/` se abre en el Explorador con el archivo resaltado
 3. El cliente de correo predeterminado se abre con asunto y cuerpo pre-rellenados
 4. Adjunte el archivo ZIP al correo antes de enviarlo
 

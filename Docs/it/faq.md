@@ -111,13 +111,13 @@ Il consumo viene registrato in `Billing/consumo_tts.json`. Se il file risulta bl
 
 **Non trovo l'output generato.**
 
-Ogni fase crea una sottocartella con formato `<timestamp>_<nome_file>` nella propria directory di output. Cercare in:
-- `Audio_Extracted/` per l'audio estratto
-- `Transcripts/` per le trascrizioni SRT
-- `Translated/` per le traduzioni SRT
-- `Dubbed/<PROVIDER>/` per l'audio doppiato finale
+I file di output si trovano nella cartella del progetto attivo. Cercare in `Workspace/projects/{nome_progetto}/`:
+- `audio_extraction/current/` per l'audio estratto
+- `transcripts/current/` per le trascrizioni SRT
+- `translated/current/` per le traduzioni SRT
+- `dubbed/current/` per l'audio doppiato finale
 
-Il file `_info.txt` in ogni sottocartella riporta i dettagli dell'elaborazione.
+Il file `project_info.json` nella root del progetto riporta i dettagli di ogni elaborazione.
 
 ---
 

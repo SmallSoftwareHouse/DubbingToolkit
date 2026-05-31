@@ -125,7 +125,7 @@ Un progetto può essere eliminato. Se abilitata l'impostazione `use_trash`, il p
 
 - Usare nomi file e progetti brevi e senza spazi o caratteri speciali per evitare problemi nei percorsi.
 - I file in `Workspace/projects/{nome}/video_input/` non vengono mai modificati dal sistema.
-- Ogni fase genera metadati (file `.json` o `_info.txt`): utili per tracciare lo stato di avanzamento o diagnosticare problemi.
+- Ogni fase genera metadati (file `.json`): utili per tracciare lo stato di avanzamento o diagnosticare problemi.
 - In caso di interruzione del processo, è possibile ripartire dalla fase successiva a quella già completata, usando i file nelle cartelle di output intermedio.
 - I file estratti e processati in ogni fase vengono automaticamente archiviati nella cartella `archive/` di quella fase per preservare la cronologia.
 
@@ -147,8 +147,8 @@ Se durante la sessione si sono verificati errori, all'uscita viene proposta auto
 
 ### Come funziona
 
-1. Viene creato un file ZIP in `Logs/` contenente i log delle sessioni recenti
-2. La cartella `Logs/` si apre in Explorer con il file evidenziato
+1. Viene creato un file ZIP in `Logs/reports/` contenente i log delle sessioni recenti
+2. La cartella `Logs/reports/` si apre in Explorer con il file evidenziato
 3. Il client email predefinito si apre con oggetto e corpo pre-compilati
 4. Allegare il file ZIP all'email prima di inviarla
 

@@ -125,7 +125,7 @@ You can open a project folder directly in Explorer to manually inspect generated
 
 - Use short project and file names without spaces or special characters to avoid path-related issues.
 - Files in `Workspace/projects/{name}/video_input/` are never modified by the system.
-- Each stage generates metadata (`.json` files or `_info.txt`): useful for tracking progress or diagnosing issues.
+- Each stage generates metadata (`.json` files): useful for tracking progress or diagnosing issues.
 - If the process is interrupted, you can resume from the next stage after the one already completed, using the files in the intermediate output folders.
 - Processed files at each stage are automatically archived in that stage's `archive/` folder to preserve history.
 
@@ -147,8 +147,8 @@ If errors occurred during the session, the application will ask on exit:
 
 ### How it works
 
-1. A ZIP file is created in `Logs/` containing recent session logs
-2. The `Logs/` folder opens in Explorer with the file highlighted
+1. A ZIP file is created in `Logs/reports/` containing recent session logs
+2. The `Logs/reports/` folder opens in Explorer with the file highlighted
 3. Your default email client opens with subject and body pre-filled
 4. Attach the ZIP file to the email before sending
 

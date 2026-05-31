@@ -111,13 +111,13 @@ Usage is recorded in `Billing/consumo_tts.json`. If the file appears locked or c
 
 **I cannot find the generated output.**
 
-Each stage creates a subfolder with the format `<timestamp>_<filename>` in its output directory. Look in:
-- `Audio_Extracted/` for extracted audio
-- `Transcripts/` for SRT transcriptions
-- `Translated/` for SRT translations
-- `Dubbed/<PROVIDER>/` for the final dubbed audio
+Output files are located in the active project folder. Look in `Workspace/projects/{project_name}/`:
+- `audio_extraction/current/` for extracted audio
+- `transcripts/current/` for SRT transcriptions
+- `translated/current/` for SRT translations
+- `dubbed/current/` for the final dubbed audio
 
-The `_info.txt` file in each subfolder shows the processing details.
+The `project_info.json` file in the project root contains details of each processing run.
 
 ---
 

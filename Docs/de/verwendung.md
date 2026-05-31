@@ -125,7 +125,7 @@ Sie können den Ordner eines Projekts direkt im Explorer öffnen, um die generie
 
 - Verwenden Sie kurze Projekt- und Dateinamen ohne Leerzeichen oder Sonderzeichen, um Pfadprobleme zu vermeiden.
 - Dateien in `Workspace/projects/{name}/video_input/` werden niemals vom System geändert.
-- Jede Phase generiert Metadaten (`.json`-Dateien oder `_info.txt`): nützlich zum Verfolgen des Fortschritts oder zur Diagnose von Problemen.
+- Jede Phase generiert Metadaten (`.json`-Dateien): nützlich zum Verfolgen des Fortschritts oder zur Diagnose von Problemen.
 - Wenn der Prozess unterbrochen wird, können Sie ab der nächsten Phase nach der bereits abgeschlossenen fortfahren, indem Sie die Dateien in den Zwischen-Ausgabeverzeichnissen verwenden.
 - Verarbeitete Dateien in jeder Phase werden automatisch im `archive/`-Ordner dieser Phase archiviert, um den Verlauf zu erhalten.
 
@@ -147,8 +147,8 @@ Wenn während der Sitzung Fehler aufgetreten sind, fragt die Anwendung beim Been
 
 ### Funktionsweise
 
-1. Eine ZIP-Datei wird in `Logs/` erstellt, die die Protokolle der letzten Sitzungen enthält
-2. Der Ordner `Logs/` öffnet sich im Explorer mit der markierten Datei
+1. Eine ZIP-Datei wird in `Logs/reports/` erstellt, die die Protokolle der letzten Sitzungen enthält
+2. Der Ordner `Logs/reports/` öffnet sich im Explorer mit der markierten Datei
 3. Der Standard-E-Mail-Client öffnet sich mit vorausgefülltem Betreff und Text
 4. Hängen Sie die ZIP-Datei an die E-Mail an, bevor Sie sie senden
 

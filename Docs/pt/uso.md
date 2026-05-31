@@ -125,7 +125,7 @@ Você pode abrir a pasta de um projeto diretamente no Explorer para inspecionar 
 
 - Use nomes curtos de projeto e arquivo sem espaços ou caracteres especiais para evitar problemas relacionados a caminhos.
 - Os arquivos em `Workspace/projects/{nome}/video_input/` nunca são modificados pelo sistema.
-- Cada etapa gera metadados (arquivos `.json` ou `_info.txt`): úteis para acompanhar o progresso ou diagnosticar problemas.
+- Cada etapa gera metadados (arquivos `.json`): úteis para acompanhar o progresso ou diagnosticar problemas.
 - Se o processo for interrompido, você pode retomá-lo a partir da próxima etapa após a já concluída, usando os arquivos nas pastas de saída intermediárias.
 - Os arquivos processados em cada etapa são arquivados automaticamente na pasta `archive/` dessa etapa para preservar o histórico.
 
@@ -147,8 +147,8 @@ Se ocorreram erros durante a sessão, a aplicação perguntará ao sair:
 
 ### Como funciona
 
-1. Um arquivo ZIP é criado em `Logs/` contendo os registros das sessões recentes
-2. A pasta `Logs/` abre no Explorer com o arquivo destacado
+1. Um arquivo ZIP é criado em `Logs/reports/` contendo os registros das sessões recentes
+2. A pasta `Logs/reports/` abre no Explorer com o arquivo destacado
 3. O cliente de e-mail padrão abre com assunto e corpo pré-preenchidos
 4. Anexe o arquivo ZIP ao e-mail antes de enviá-lo
 

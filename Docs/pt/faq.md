@@ -111,13 +111,13 @@ O uso é registrado em `Billing/consumo_tts.json`. Se o arquivo parecer bloquead
 
 **Não consigo encontrar a saída gerada.**
 
-Cada etapa cria uma subpasta com o formato `<timestamp>_<nome_do_arquivo>` em seu diretório de saída. Procure em:
-- `Audio_Extracted/` para o áudio extraído
-- `Transcripts/` para as transcrições SRT
-- `Translated/` para as traduções SRT
-- `Dubbed/<PROVIDER>/` para o áudio dublado final
+Os arquivos de saída estão na pasta do projeto ativo. Procurar em `Workspace/projects/{nome_projeto}/`:
+- `audio_extraction/current/` para o áudio extraído
+- `transcripts/current/` para as transcrições SRT
+- `translated/current/` para as traduções SRT
+- `dubbed/current/` para o áudio dublado final
 
-O arquivo `_info.txt` em cada subpasta mostra os detalhes do processamento.
+O arquivo `project_info.json` na raiz do projeto contém os detalhes de cada processamento.
 
 ---
 

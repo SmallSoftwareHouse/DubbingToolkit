@@ -60,11 +60,15 @@ Haz una copia de seguridad y elimina `Billing/consumo_tts.json`.
 
 ## Archivos y carpetas
 
-**No encuentro la salida.**
-- `Audio_Extracted/`
-- `Transcripts/`
-- `Translated/`
-- `Dubbed/<PROVIDER>/`
+**No encuentro la salida generada.**
+
+Los archivos de salida se encuentran en la carpeta del proyecto activo. Buscar en `Workspace/projects/{nombre_proyecto}/`:
+- `audio_extraction/current/` para el audio extraído
+- `transcripts/current/` para las transcripciones SRT
+- `translated/current/` para las traducciones SRT
+- `dubbed/current/` para el audio doblado final
+
+El archivo `project_info.json` en la raíz del proyecto contiene los detalles de cada procesamiento.
 
 **Moví el proyecto y ahora no funciona.**
 Elimina `venv/` y reinicia.

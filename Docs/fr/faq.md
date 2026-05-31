@@ -111,13 +111,13 @@ La consommation est enregistrée dans `Billing/consumo_tts.json`. Si le fichier 
 
 **Je ne trouve pas la sortie générée.**
 
-Chaque étape crée un sous-dossier au format `<timestamp>_<nom_fichier>` dans son répertoire de sortie. Chercher dans :
-- `Audio_Extracted/` pour l'audio extrait
-- `Transcripts/` pour les transcriptions SRT
-- `Translated/` pour les traductions SRT
-- `Dubbed/<PROVIDER>/` pour l'audio doublé final
+Les fichiers de sortie se trouvent dans le dossier du projet actif. Chercher dans `Workspace/projects/{nom_du_projet}/` :
+- `audio_extraction/current/` pour l'audio extrait
+- `transcripts/current/` pour les transcriptions SRT
+- `translated/current/` pour les traductions SRT
+- `dubbed/current/` pour l'audio doublé final
 
-Le fichier `_info.txt` dans chaque sous-dossier indique les détails du traitement.
+Le fichier `project_info.json` à la racine du projet contient les détails de chaque traitement.
 
 ---
 

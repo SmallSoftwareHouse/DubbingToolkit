@@ -61,10 +61,14 @@ Neuronale Stimmen verwenden (Azure Neural, Google WaveNet).
 ## Dateien und Ordner
 
 **Ausgabe nicht gefunden.**
-- `Audio_Extracted/`
-- `Transcripts/`
-- `Translated/`
-- `Dubbed/<PROVIDER>/`
+
+Die Ausgabedateien befinden sich im aktiven Projektordner. Suchen in `Workspace/projects/{projektname}/`:
+- `audio_extraction/current/` für extrahiertes Audio
+- `transcripts/current/` für SRT-Transkripte
+- `translated/current/` für übersetzte SRT-Dateien
+- `dubbed/current/` für die fertige Synchron-Audiodatei
+
+Die Datei `project_info.json` im Projektstammverzeichnis enthält Details jeder Verarbeitung.
 
 **Projekt verschoben, funktioniert nicht mehr.**
 `venv/` löschen.
