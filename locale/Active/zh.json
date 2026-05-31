@@ -666,5 +666,6 @@
   "ARCHIVE_PruneReason": "原因：{0}",
   "ARCHIVE_PruneTriggeredCount": "备份数量：{0}/{1}",
   "ARCHIVE_PruneTriggeredSize": "大小：{0:.1f}/{1:.1f} GB",
-  "InfoBoxVideoExternal": "外部"
+  "InfoBoxVideoExternal": "外部",
+  "OPEN_FOLDER_prompt": "在资源管理器中打开输出文件夹？(y/N)："
 }
